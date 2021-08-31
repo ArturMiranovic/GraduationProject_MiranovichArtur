@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\AuthAttribute\" />
+    <Folder Include="Controllers\Repositories\" />
+    <Folder Include="EfStuff\Modrel\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Services\" />
+    <Folder Include="ViewModel\" />
+    <Folder Include="wwwroot\image\" />
+    <Folder Include="Localize\" />
+  </ItemGroup>
+
+</Project>
