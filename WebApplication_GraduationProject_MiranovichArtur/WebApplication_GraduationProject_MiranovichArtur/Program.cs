@@ -13,7 +13,7 @@ namespace WebApplication_GraduationProject_MiranovichArtur
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run(); //добавить автоматичское заполнение БД стандартными значениями
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
