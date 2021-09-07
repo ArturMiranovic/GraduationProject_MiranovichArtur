@@ -12,7 +12,5 @@ namespace WebApplication_Artur.Models
 
         public string Password { get; set; }
 
-
-
     }
 }

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,61 +9,48 @@ using WebApplication_Artur.Models;
 
 namespace WebApplication_Artur.Controllers
 {
-    public class UserController : Controller
+    public class BikeController : Controller
     {
 
         private ShopDbContext _shopDbContext;
-        private IMapper _mapper;
 
-        public UserController(ShopDbContext shopDbContext, IMapper mapper)
+        public BikeController(ShopDbContext shopDbContext)
         {
             _shopDbContext = shopDbContext;
-            _mapper = mapper;
         }
 
         [HttpGet]
-        public IActionResult Registration()
+        public IActionResult AddBike()
         {
 
             return View();
         }
 
-
-
         [HttpPost]
-        public IActionResult Registration(RegistrationViewModel viewmodel)
+        public IActionResult AddBike(BikeAddViewModel viewmodel)
         {
 
-            var user = _mapper.Map<User>(viewmodel);
+            var bike = new Bike()
+            {
+                Price = viewmodel.Price,
 
-            //var user = new User()
-            //{
-            //    Login = viewmodel.Login,
-            //    Password = viewmodel.Password
-            //};
-
-            _shopDbContext.Users.Add(user);
-
-            _shopDbContext.SaveChanges();
+            };
+            //добавить!!!!!!!!!!!!!!!!!!!!!!
 
             return RedirectToActionPermanent("Index", "Home");
         }
-
 
         public IActionResult All()
         {
 
             var allUser = _shopDbContext.Users.ToList();
 
-
-            var viewModels = _mapper.Map<List<UaerForRemoveVieqModel>>(allUser);
-
-            //var viewModels = allUser
-            //    .Select(x => new UaerForRemoveVieqModel()
-            //    {
-            //        Id = x.Id,
-            //        Login = x.Login
-            //    }).ToList();
+            var viewModels = allUser
+                .Select(x => new UaerForRemoveVieqModel()
+                {
+                    Id = x.Id,
+                    Login = x.Login
+                }).ToList();
 
             return View(viewModels);
         }

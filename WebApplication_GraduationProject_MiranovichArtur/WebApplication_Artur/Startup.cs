@@ -1,3 +1,5 @@
+using AutoMapper;
+using AutoMapper.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +12,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication_Artur.EfStuff;
+using WebApplication_Artur.EfStuff.Model;
+using WebApplication_Artur.Models;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace WebApplication_Artur
 {
@@ -27,9 +32,26 @@ namespace WebApplication_Artur
         {
             var connectString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Shop;Integrated Security=True;";
 
+            
+
             services.AddDbContext<ShopDbContext>(x => x.UseSqlServer(connectString));
 
             services.AddControllersWithViews();
+
+            regiaterMapper(services);
+        }
+
+        private void regiaterMapper(IServiceCollection services)
+        {
+            var provider = new MapperConfigurationExpression();
+
+            provider.CreateMap<User, UaerForRemoveVieqModel>();
+            provider.CreateMap<RegistrationViewModel, User>();
+
+            var mapperConfiguration = new MapperConfiguration(provider);
+            var mapper = new Mapper(mapperConfiguration);
+
+            services.AddScoped<IMapper>(x => mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
