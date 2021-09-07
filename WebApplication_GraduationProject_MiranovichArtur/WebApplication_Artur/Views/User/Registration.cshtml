@@ -1,0 +1,33 @@
+﻿@model RegistrationViewModel
+
+<form action="/User/Registration" method="post">
+
+    <div>
+
+        <div>
+            Введдите ваш логин:
+        </div>
+
+        <div>
+            @Html.TextBoxFor(x => x.Login)
+        </div>
+
+    </div>
+
+    <div>
+
+        <div>
+            Придумайте ваш пароль:
+        </div>
+
+        <div>
+            @Html.TextBoxFor(x => x.Password)
+        </div>
+
+    </div>
+
+    <div class="inutRegistration">
+         <input type="submit" value="Зарегестрироваться"/>
+    </div>
+
+</form>

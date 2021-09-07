@@ -1,0 +1,12 @@
+﻿@model List<UaerForRemoveVieqModel>
+
+
+    <div>
+
+        @foreach (var user in Model)
+        {
+            <div>
+                @user.Login <a href="/User/Remove?id=@user.Id&">удалить</a>
+            </div>
+        }
+    </div>

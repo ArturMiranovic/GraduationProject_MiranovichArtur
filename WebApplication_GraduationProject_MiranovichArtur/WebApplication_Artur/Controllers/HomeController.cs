@@ -5,22 +5,27 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication_Artur.EfStuff;
 using WebApplication_Artur.Models;
 
 namespace WebApplication_Artur.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private ShopDbContext _shopDbContext;
+
+        public HomeController(ShopDbContext shopDbContext)
         {
-            _logger = logger;
+            _shopDbContext = shopDbContext;
         }
 
         public IActionResult Index()
         {
-            return View();
+
+            var allUsers = _shopDbContext.Users.ToList();
+
+            return View(allUsers.Count);
         }
 
         public IActionResult Privacy()
@@ -28,10 +33,5 @@ namespace WebApplication_Artur.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
