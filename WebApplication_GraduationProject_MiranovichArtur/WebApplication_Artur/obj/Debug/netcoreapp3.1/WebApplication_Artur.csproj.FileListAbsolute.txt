@@ -87,3 +87,4 @@ D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplica
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\Razor\Views\User\All.cshtml.g.cs
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\bin\Debug\netcoreapp3.1\Castle.Core.dll
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs

@@ -23,7 +23,7 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Index()
         {
 
-            var allUsers = _shopDbContext.Users.ToList();
+            var allUsers = _shopDbContext.Bikes.ToList();
 
             return View(allUsers.Count);
         }

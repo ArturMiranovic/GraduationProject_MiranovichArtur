@@ -16,12 +16,16 @@ using WebApplication_Artur.EfStuff.Model;
 using WebApplication_Artur.EfStuff.Model.UserModel;
 using WebApplication_Artur.EfStuff.Repositories;
 using WebApplication_Artur.Models;
+
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace WebApplication_Artur
 {
     public class Startup
     {
+
+        public const string AuthName = "CoockieUser";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,6 +37,14 @@ namespace WebApplication_Artur
         public void ConfigureServices(IServiceCollection services)
         {
             var connectString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Shop;Integrated Security=True;";
+
+            services.AddAuthentication(AuthName)
+                .AddCookie(AuthName, config =>
+                {
+                    config.LoginPath = "/User/Login";
+                    config.AccessDeniedPath = "/User/Denied";
+                    config.Cookie.Name = "ArturBikeUser";
+                });
 
             services.AddScoped<UserRepository>(container =>
             new UserRepository(container.GetService<ShopDbContext>())
@@ -76,6 +88,10 @@ namespace WebApplication_Artur
 
             app.UseRouting();
 
+            //Who am I?
+            app.UseAuthentication();
+
+            //Waht can I see?
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

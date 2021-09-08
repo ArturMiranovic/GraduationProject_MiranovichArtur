@@ -5,6 +5,10 @@ using WebApplication_Artur.EfStuff.Model.UserModel;
 using WebApplication_Artur.EfStuff.Model.BikeModel;
 using WebApplication_Artur.EfStuff.Repositories;
 using WebApplication_Artur.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace WebApplication_Artur.Controllers
 {
@@ -18,6 +22,56 @@ namespace WebApplication_Artur.Controllers
         {
             _mapper = mapper;
             _userRepository = userRepository;
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            var returnUrl = Request.Query["ReturnUrl"].FirstOrDefault();
+            var viewModel = new RegistrationViewModel()
+            {
+                ReturnUrl = returnUrl
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(RegistrationViewModel viewModel)
+        {
+            var user = _userRepository.Get(viewModel.Login, viewModel.Password);
+
+            if (user == null)
+            {
+                ModelState.AddModelError(nameof(RegistrationViewModel.Login),
+                    "Неверный логин или пароль");
+                return View(viewModel);
+            }
+
+            var claims = new List<Claim>();
+            claims.Add(new Claim("Id", user.Id.ToString()));  //заменить Id на ClaimTypes
+            claims.Add(new Claim(ClaimTypes.Name, user.Login));
+            claims.Add(new Claim(
+                ClaimTypes.AuthenticationMethod,
+                Startup.AuthName));
+
+            var claimsIdentity = new ClaimsIdentity(claims, Startup.AuthName);
+
+            var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+            await HttpContext.SignInAsync(claimsPrincipal);
+
+            if (string.IsNullOrEmpty(viewModel.ReturnUrl))
+            {
+                return Redirect("/");
+            }
+
+            return Redirect(viewModel.ReturnUrl);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/user.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+
 </head>
 
     <body class="body">
@@ -22,16 +24,55 @@
                         <a href="/Home/Index">Главная</a>
                     </div>
 
-                    <div class="menuCell">
-                        <a href="/User/Registration">Регистрация</a>
-                    </div>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <div class="menuCell">
+                            <a href="/User/Logout">Выход</a>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="menuCell">
+
+                            <a href="/User/Registration">Регистрация</a>
+
+                        </div>
+
+                        <div class="menuCell">
+
+                            <a href="/User/Login">Авторизация</a>
+
+                        </div>
+                    }
 
                     <div class="menuCell">
                         <a href="/User/All">Список пользователей</a>
                     </div>
 
                     <div class="menuCell">
-                        <a href="/User/Registration">новое лействие</a>
+                        <a href="/User/All">продать свой велосипед</a>
+                    </div>
+
+                    <div class="menuCell">
+                        <a href="/User/All">список велосипедов</a>
+                    </div>
+
+                    <div class="menuCell">
+                        <a href="/User/All">велосипеды по фильтрам и цене</a>
+                    </div>
+
+                    <div class="menuCell">
+                        <a href="/User/All">Список избранных велосипедов</a>
+                    </div>
+
+                    <div class="menuCell">
+                        <a href="/User/All">сравнение избранных</a>
+                    </div>
+
+                    <div class="menuCell">
+                        <a href="/User/All">страница пользователя</a>
                     </div>
 
                 </div>
