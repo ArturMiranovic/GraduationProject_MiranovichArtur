@@ -13,6 +13,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication_Artur.EfStuff;
 using WebApplication_Artur.EfStuff.Model;
+using WebApplication_Artur.EfStuff.Model.UserModel;
+using WebApplication_Artur.EfStuff.Repositories;
 using WebApplication_Artur.Models;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
@@ -32,7 +34,9 @@ namespace WebApplication_Artur
         {
             var connectString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Shop;Integrated Security=True;";
 
-            
+            services.AddScoped<UserRepository>(container =>
+            new UserRepository(container.GetService<ShopDbContext>())
+            );
 
             services.AddDbContext<ShopDbContext>(x => x.UseSqlServer(connectString));
 

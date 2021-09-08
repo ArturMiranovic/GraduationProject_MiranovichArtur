@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WebApplication_Artur.EfStuff;
 using WebApplication_Artur.EfStuff.Model;
 using WebApplication_Artur.Models;
+using WebApplication_Artur.EfStuff.Model.BikeModel;
 
 namespace WebApplication_Artur.Controllers
 {

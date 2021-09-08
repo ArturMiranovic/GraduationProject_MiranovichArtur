@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using WebApplication_Artur.EfStuff.Model.UserModel;
+
+namespace WebApplication_Artur.EfStuff.Model.BikeModel
+{
+    public class Bike : BaseModel
+    {
+
+        public long Price { get; set; }
+
+        public int BikeSize { get; set; }
+
+        public BikeClass BikeClass { get;set; }
+
+        public virtual List<User> Owner { get; set; }
+
+        public virtual List<User> PotentialBuyer { get; set; }
+
+        public virtual List<Switch> Switches { get; set; }
+
+        public virtual List<Wheel> Wheels { get; set; }
+
+        public virtual List<Brake> Brakes { get; set; }
+        
+        public virtual List<Comment> Comments { get; set; }
+    }
+}

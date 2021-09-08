@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WebApplication_Artur.EfStuff;
-using WebApplication_Artur.EfStuff.Model;
+using WebApplication_Artur.EfStuff.Model.UserModel;
+using WebApplication_Artur.EfStuff.Model.BikeModel;
+using WebApplication_Artur.EfStuff.Repositories;
 using WebApplication_Artur.Models;
 
 namespace WebApplication_Artur.Controllers
@@ -13,13 +11,13 @@ namespace WebApplication_Artur.Controllers
     public class UserController : Controller
     {
 
-        private ShopDbContext _shopDbContext;
         private IMapper _mapper;
+        private UserRepository _userRepository;
 
-        public UserController(ShopDbContext shopDbContext, IMapper mapper)
+        public UserController(IMapper mapper, UserRepository userRepository)
         {
-            _shopDbContext = shopDbContext;
             _mapper = mapper;
+            _userRepository = userRepository;
         }
 
         [HttpGet]
@@ -29,12 +27,10 @@ namespace WebApplication_Artur.Controllers
             return View();
         }
 
-
-
         [HttpPost]
         public IActionResult Registration(RegistrationViewModel viewmodel)
         {
-
+            
             var user = _mapper.Map<User>(viewmodel);
 
             //var user = new User()
@@ -43,19 +39,18 @@ namespace WebApplication_Artur.Controllers
             //    Password = viewmodel.Password
             //};
 
-            _shopDbContext.Users.Add(user);
+            _userRepository.Save(user);
 
-            _shopDbContext.SaveChanges();
+            //_shopDbContext.Users.Add(user);
+            //_shopDbContext.SaveChanges();
 
             return RedirectToActionPermanent("Index", "Home");
         }
 
-
         public IActionResult All()
         {
 
-            var allUser = _shopDbContext.Users.ToList();
-
+            var allUser = _userRepository.GetAll();
 
             var viewModels = _mapper.Map<List<UaerForRemoveVieqModel>>(allUser);
 
@@ -72,9 +67,11 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Remove(long id)
         {
 
-            var user = _shopDbContext.Users.Single(x => x.Id == id);
-            _shopDbContext.Users.Remove(user);
-            _shopDbContext.SaveChanges();
+            _userRepository.Remove(id);
+
+            //var user = _shopDbContext.Users.Single(x => x.Id == id);
+            //_shopDbContext.Users.Remove(user);
+            //_shopDbContext.SaveChanges();
 
             return RedirectToActionPermanent("All");
         }
