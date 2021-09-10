@@ -59,15 +59,11 @@ namespace WebApplication_Artur.Controllers
         public IActionResult AddBike(AddBikeViewModel viewmodel)
         {
 
-            var bike = _mapper.Map<Bike>(viewmodel);        //на каком моменте появляется id?
+            var bike = _mapper.Map<Bike>(viewmodel); 
 
             bike.Owner = _userServices.GetCurrent();
 
             _bikeRepository.Save(bike);
-
-            //var idBike = _mapper.Map<BikeViewModel>(_bikeRepository.Get(bike.Name)).Id; //поиск по имени?
-
-            //return RedirectToActionPermanent("PageBike", "Bike", idBike);  // передать полностью модель или только id?
 
             return RedirectToActionPermanent("PageBike", "Bike", bike.Id);
         }
@@ -86,8 +82,6 @@ namespace WebApplication_Artur.Controllers
         [HttpGet]
         public IActionResult PageBike()
         {
-
-
 
             return View();
         }

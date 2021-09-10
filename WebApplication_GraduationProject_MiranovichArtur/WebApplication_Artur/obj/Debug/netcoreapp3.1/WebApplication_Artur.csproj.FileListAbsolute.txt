@@ -77,7 +77,6 @@ D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplica
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\Razor\Views\Gallery\AllGallery.cshtml.g.cs
-D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\WebApplication_Artur.GeneratedMSBuildEditorConfig.editorconfig
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\bin\Debug\netcoreapp3.1\DocXCore.dll
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
