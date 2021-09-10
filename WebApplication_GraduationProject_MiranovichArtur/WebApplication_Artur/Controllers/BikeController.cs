@@ -36,12 +36,6 @@ namespace WebApplication_Artur.Controllers
             var allUser = _bikeRepository.GetAll();
 
             var viewModels = _mapper.Map<BikeViewModel>(allUser);
-            //allUser
-            //    .Select(x => new UserForRemoveVieqModel()
-            //    {
-            //        Id = x.Id,
-            //        Login = x.Login
-            //    }).ToList();
 
             return View(viewModels);
         }
@@ -65,21 +59,37 @@ namespace WebApplication_Artur.Controllers
         public IActionResult AddBike(AddBikeViewModel viewmodel)
         {
 
-            var bike = _mapper.Map<Bike>(viewmodel);
+            var bike = _mapper.Map<Bike>(viewmodel);        //на каком моменте появляется id?
 
             bike.Owner = _userServices.GetCurrent();
 
-            _bikeRepository.Save(bike); 
+            _bikeRepository.Save(bike);
 
-            return RedirectToActionPermanent("PageBike", "Bike");
+            //var idBike = _mapper.Map<BikeViewModel>(_bikeRepository.Get(bike.Name)).Id; //поиск по имени?
+
+            //return RedirectToActionPermanent("PageBike", "Bike", idBike);  // передать полностью модель или только id?
+
+            return RedirectToActionPermanent("PageBike", "Bike", bike.Id);
         }
 
+        [HttpPost]
+        public IActionResult PageBike(long idBike)
+        {
 
+            var bike = _bikeRepository.Get(idBike);
+
+            var viewmodel = _mapper.Map<BikeViewModel>(bike);
+
+            return View(viewmodel);
+        }
+
+        [HttpGet]
         public IActionResult PageBike()
         {
 
+
+
             return View();
         }
-
     }
 }

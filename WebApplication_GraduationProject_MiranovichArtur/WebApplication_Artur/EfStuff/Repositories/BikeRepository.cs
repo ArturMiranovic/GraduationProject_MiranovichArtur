@@ -13,6 +13,11 @@ namespace WebApplication_Artur.EfStuff.Repositories
         {
         }
 
+        public Bike Get(string name)
+        {
+            return _dbSet
+                .SingleOrDefault(x => x.Name == name);
+        }
 
 
     }

@@ -20,13 +20,15 @@ namespace WebApplication_Artur.Models
 
         public BikeClass BikeClass { get; set; }
 
-        public List<User> PotentialBuyer { get; set; }
-
         public BrakeViewModel BrakeViewModel { get; set; }
 
         public SwitchViewModel SwitchViewModel { get; set; }
 
         public WhellViewModel WhellViewModel { get; set; }
+
+        public List<User> PotentialBuyer { get; set; }
+
+        public List<Comment> Comments { get; set; }
 
     }
 }
