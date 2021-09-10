@@ -5,15 +5,12 @@ using System.Threading.Tasks;
 
 namespace WebApplication_Artur.Models
 {
-    public class BikeAddViewModel
+    public class UserViewModel
     {
-
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public long Price { get; set; }
-
-        //public List<string> 
+        public string Login { get; set; }
     }
 }

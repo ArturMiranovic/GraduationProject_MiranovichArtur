@@ -7,17 +7,51 @@ using WebApplication_Artur.EfStuff;
 using WebApplication_Artur.EfStuff.Model;
 using WebApplication_Artur.Models;
 using WebApplication_Artur.EfStuff.Model.BikeModel;
+using AutoMapper;
+using WebApplication_Artur.EfStuff.Repositories;
+using WebApplication_Artur.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication_Artur.Controllers
 {
     public class BikeController : Controller
     {
 
-        private ShopDbContext _shopDbContext;
+        private IMapper _mapper;
+        private BikeRepository _bikeRepository; 
+        private UserServices _userServices;
+        //private IHttpContextAccessor _httpContextAccessor;
 
-        public BikeController(ShopDbContext shopDbContext)
+        public BikeController(ShopDbContext shopDbContext, IMapper mapper, BikeRepository bikeRepository, UserServices userServices)
         {
-            _shopDbContext = shopDbContext;
+            _mapper = mapper;
+            _bikeRepository = bikeRepository;
+            _userServices = userServices;
+        }
+
+        [HttpPost]
+        public IActionResult All()
+        {
+
+            var allUser = _bikeRepository.GetAll();
+
+            var viewModels = _mapper.Map<BikeViewModel>(allUser);
+            //allUser
+            //    .Select(x => new UserForRemoveVieqModel()
+            //    {
+            //        Id = x.Id,
+            //        Login = x.Login
+            //    }).ToList();
+
+            return View(viewModels);
+        }
+
+        public IActionResult Remove(long id)
+        {
+
+            _bikeRepository.Remove(id);
+
+            return RedirectToActionPermanent("All");
         }
 
         [HttpGet]
@@ -28,42 +62,24 @@ namespace WebApplication_Artur.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddBike(BikeAddViewModel viewmodel)
+        public IActionResult AddBike(AddBikeViewModel viewmodel)
         {
 
-            var bike = new Bike()
-            {
-                Price = viewmodel.Price,
+            var bike = _mapper.Map<Bike>(viewmodel);
 
-            };
-            //добавить!!!!!!!!!!!!!!!!!!!!!!
+            bike.Owner = _userServices.GetCurrent();
 
-            return RedirectToActionPermanent("Index", "Home");
+            _bikeRepository.Save(bike); 
+
+            return RedirectToActionPermanent("PageBike", "Bike");
         }
 
-        public IActionResult All()
+
+        public IActionResult PageBike()
         {
 
-            var allUser = _shopDbContext.Users.ToList();
-
-            var viewModels = allUser
-                .Select(x => new UaerForRemoveVieqModel()
-                {
-                    Id = x.Id,
-                    Login = x.Login
-                }).ToList();
-
-            return View(viewModels);
+            return View();
         }
 
-        public IActionResult Remove(long id)
-        {
-
-            var user = _shopDbContext.Users.Single(x => x.Id == id);
-            _shopDbContext.Users.Remove(user);
-            _shopDbContext.SaveChanges();
-
-            return RedirectToActionPermanent("All");
-        }
     }
 }

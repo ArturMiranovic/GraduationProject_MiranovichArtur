@@ -54,5 +54,6 @@ namespace WebApplication_Artur.EfStuff.Repositories
             _dbSet.Remove(Get(id));
             _shopDbContext.SaveChanges();
         }
+
     }
 }

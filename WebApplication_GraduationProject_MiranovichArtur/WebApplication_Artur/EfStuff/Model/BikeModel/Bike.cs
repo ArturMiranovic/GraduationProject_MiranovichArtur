@@ -11,11 +11,11 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 
         public long Price { get; set; }
 
-        public int BikeSize { get; set; }
+        public long BikeSize { get; set; }
 
         public BikeClass BikeClass { get;set; }
 
-        public virtual List<User> Owner { get; set; }
+        public virtual User Owner { get; set; }
 
         public virtual List<User> PotentialBuyer { get; set; }
 

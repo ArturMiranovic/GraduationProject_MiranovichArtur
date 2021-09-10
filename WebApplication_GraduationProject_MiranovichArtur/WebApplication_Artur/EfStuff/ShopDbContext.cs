@@ -29,7 +29,7 @@ namespace WebApplication_Artur.EfStuff
         {
             modelBuilder.Entity<User>()
                 .HasMany(x => x.MyBikes)
-                .WithMany(x => x.Owner);
+                .WithOne(x => x.Owner);
 
             modelBuilder.Entity<User>()
                 .HasMany(x => x.LikeBikes)

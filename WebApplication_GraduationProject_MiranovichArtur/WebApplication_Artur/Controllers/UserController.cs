@@ -106,7 +106,7 @@ namespace WebApplication_Artur.Controllers
 
             var allUser = _userRepository.GetAll();
 
-            var viewModels = _mapper.Map<List<UaerForRemoveVieqModel>>(allUser);
+            var viewModels = _mapper.Map<List<UserForRemoveVieqModel>>(allUser);
 
             //var viewModels = allUser
             //    .Select(x => new UaerForRemoveVieqModel()
@@ -117,6 +117,8 @@ namespace WebApplication_Artur.Controllers
 
             return View(viewModels);
         }
+
+
 
         public IActionResult Remove(long id)
         {

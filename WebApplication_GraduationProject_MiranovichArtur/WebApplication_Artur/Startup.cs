@@ -2,6 +2,7 @@ using AutoMapper;
 using AutoMapper.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,10 +14,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication_Artur.EfStuff;
 using WebApplication_Artur.EfStuff.Model;
+using WebApplication_Artur.EfStuff.Model.BikeModel;
 using WebApplication_Artur.EfStuff.Model.UserModel;
 using WebApplication_Artur.EfStuff.Repositories;
 using WebApplication_Artur.Models;
-
+using WebApplication_Artur.Services;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace WebApplication_Artur
@@ -50,9 +52,23 @@ namespace WebApplication_Artur
             new UserRepository(container.GetService<ShopDbContext>())
             );
 
+            services.AddScoped<UserServices>(container =>
+            new UserServices(
+                container.GetService<UserRepository>(),
+                container.GetService<IHttpContextAccessor>()
+                )
+            );
+
+            services.AddScoped<BikeRepository>(container =>
+            new BikeRepository(
+                container.GetService<ShopDbContext>())
+            );
+
             services.AddDbContext<ShopDbContext>(x => x.UseSqlServer(connectString));
 
             services.AddControllersWithViews();
+
+            services.AddHttpContextAccessor();
 
             regiaterMapper(services);
         }
@@ -61,8 +77,12 @@ namespace WebApplication_Artur
         {
             var provider = new MapperConfigurationExpression();
 
-            provider.CreateMap<User, UaerForRemoveVieqModel>();
+            provider.CreateMap<User, UserForRemoveVieqModel>();
             provider.CreateMap<RegistrationViewModel, User>();
+            provider.CreateMap<Bike, BikeViewModel>();
+            provider.CreateMap<BikeViewModel, Bike>();
+            provider.CreateMap<Bike, AddBikeViewModel>();
+            provider.CreateMap<AddBikeViewModel, Bike>();
 
             var mapperConfiguration = new MapperConfiguration(provider);
             var mapper = new Mapper(mapperConfiguration);

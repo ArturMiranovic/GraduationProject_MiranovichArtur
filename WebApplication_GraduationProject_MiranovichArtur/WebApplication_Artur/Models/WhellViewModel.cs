@@ -5,12 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication_Artur.Models
 {
-    public class UaerForRemoveVieqModel
+    public class WhellViewModel
     {
-
-        public long Id { get; set; }
-
-        public string Login { get; set; }
-
     }
 }
