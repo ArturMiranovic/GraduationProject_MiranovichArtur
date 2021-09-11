@@ -1,0 +1,25 @@
+﻿.galerey-all-bike {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.galerey-one-bike {
+    background-color: #9ed2e45e;
+    padding: 8px;
+    margin: 10px;
+    box-shadow: 5px 4px 6px 0px #25448233;
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+}
+
+.nameForFiltr {
+    background-color: #9ed2e45e;
+    padding: 8px;
+    margin: 10px;
+    box-shadow: 5px 4px 6px 0px #25448233;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+}
+

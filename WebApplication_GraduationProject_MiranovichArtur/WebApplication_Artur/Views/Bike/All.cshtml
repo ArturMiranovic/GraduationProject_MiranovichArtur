@@ -1,0 +1,40 @@
+﻿@model List<GalereyBikeViewModel>
+
+<div class="nameForFiltr">
+
+    ссылка на фильтры
+
+</div>
+
+<div class="galerey-all-bike">
+
+    @foreach (var bike in Model)
+    {
+        <div class="invisibleFrame">
+
+            <a href="/Bike/PageBike?idBike=@bike.Id">
+
+                <div class="galerey-one-bike">
+
+                    <div>
+                        @bike.Name
+                    </div>
+
+                    <div>
+                        <img src="@bike.Page" />
+                    </div>
+
+                    <div>
+                        @bike.BikeClass велосипед. Размер рамы: @bike.BikeSize'.
+                    </div>
+
+                    <div>
+                        @bike.Price
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    }
+
+</div>

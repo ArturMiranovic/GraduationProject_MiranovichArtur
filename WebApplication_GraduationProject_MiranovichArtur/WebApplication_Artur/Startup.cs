@@ -83,7 +83,10 @@ namespace WebApplication_Artur
             provider.CreateMap<BikeViewModel, Bike>();
             provider.CreateMap<Bike, AddBikeViewModel>();
             provider.CreateMap<AddBikeViewModel, Bike>();
+            provider.CreateMap<Bike, GalereyBikeViewModel>();
+            provider.CreateMap<GalereyBikeViewModel, Bike>();
 
+            
             var mapperConfiguration = new MapperConfiguration(provider);
             var mapper = new Mapper(mapperConfiguration);
 

@@ -29,13 +29,12 @@ namespace WebApplication_Artur.Controllers
             _userServices = userServices;
         }
 
-        [HttpPost]
         public IActionResult All()
         {
 
-            var allUser = _bikeRepository.GetAll();
+            var allBike = _bikeRepository.GetAll();
 
-            var viewModels = _mapper.Map<BikeViewModel>(allUser);
+            var viewModels = _mapper.Map<List<GalereyBikeViewModel>>(allBike);
 
             return View(viewModels);
         }
@@ -65,10 +64,13 @@ namespace WebApplication_Artur.Controllers
 
             _bikeRepository.Save(bike);
 
-            return RedirectToActionPermanent("PageBike", "Bike", bike.Id);
+            return RedirectToActionPermanent("PageBike", bike.Id);
         }
 
-        [HttpPost]
+
+
+
+
         public IActionResult PageBike(long idBike)
         {
 
@@ -79,11 +81,5 @@ namespace WebApplication_Artur.Controllers
             return View(viewmodel);
         }
 
-        [HttpGet]
-        public IActionResult PageBike()
-        {
-
-            return View();
-        }
     }
 }

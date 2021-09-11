@@ -15,6 +15,8 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 
         public BikeClass BikeClass { get;set; }
 
+        public string Page { get; set; }
+
         public virtual User Owner { get; set; }
 
         public virtual List<User> PotentialBuyer { get; set; }
