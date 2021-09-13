@@ -8,13 +8,13 @@ using WebApplication_Artur.EfStuff.Repositories;
 
 namespace WebApplication_Artur.Services
 {
-    public class UserServices
+    public class UserService
     {
 
         private UserRepository _userRepository;
         private IHttpContextAccessor _httpContextAccessor;
 
-        public UserServices(UserRepository userRepository, IHttpContextAccessor httpContextAccessor)
+        public UserService(UserRepository userRepository, IHttpContextAccessor httpContextAccessor)
         {
             _userRepository = userRepository;
             _httpContextAccessor = httpContextAccessor;
@@ -34,7 +34,7 @@ namespace WebApplication_Artur.Services
                 return null;
             }
 
-            var id = int.Parse(idStr);
+            var id = long.Parse(idStr);
             return _userRepository.Get(id);
         }
     }

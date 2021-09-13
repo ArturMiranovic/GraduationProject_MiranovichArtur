@@ -1,97 +1,95 @@
 ﻿<html>
 
-    <head>
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/user.css" />
-        <link rel="stylesheet" href="~/css/home.css" />
-        <link rel="stylesheet" href="~/css/bike.css" />
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/user.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/bike.css" />
 
-    </head>
+</head>
 
-    <body class="body">
+<body class="body">
 
-        <div class="header">
+    <div class="header">
 
-            шапка
+        <div class="name-of-the-site">
+
+            @WebApplication_Artur.Localize.Lang.NameOfTheSite
 
         </div>
 
-        <div class="center-block">
+        @if (User.Identity.IsAuthenticated)
+        {
 
-            <div class="menu">
-                <div class="inmenu">
+            <div class="exit-registration">
+                <a href="/User/Logout">Выход</a>
+            </div>
 
-                    <div class="menuCell">
-                        <a href="/Home/Index">Главная</a>
-                    </div>
+        }
+        else
+        {
+            <div class="user">
+                <a href="/User/Login"> @WebApplication_Artur.Localize.Lang.Login</a>
+                /
+                <a href="/User/Registration">@WebApplication_Artur.Localize.Lang.Register</a>
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
+            </div>
+        }
+    </div>
 
-                        <div class="menuCell">
-                            <a href="/User/Logout">Выход</a>
-                        </div>
+    <div class="center-block">
 
-                    }
-                    else
-                    {
-                        <div class="menuCell">
+        <div class="menu">
+            <div class="inmenu">
 
-                            <a href="/User/Registration">Регистрация</a>
+                <div class="menuCell">
+                    <a href="/Home/Index">@WebApplication_Artur.Localize.Lang.Home</a>
+                </div>
 
-                        </div>
+                <div class="menuCell">
+                    <a href="/Bike/AddBike">@WebApplication_Artur.Localize.Lang.SellABike</a>
+                </div>
 
-                        <div class="menuCell">
+                <div class="menuCell">
+                    <a href="/Bike/All">@WebApplication_Artur.Localize.Lang.GalleryOfOffers</a>
+                </div>
 
-                            <a href="/User/Login">Авторизация</a>
+                <div class="menuCell">
+                    <a href="/User/All">@WebApplication_Artur.Localize.Lang.UserList</a>
+                </div>
 
-                        </div>
-                    }
+                <div class="menuCell">
+                    <a href="/User/All">велосипеды по фильтрам и цене</a>
+                </div>
 
-                    <div class="menuCell">
-                        <a href="/Bike/AddBike">Выставить на продажу</a>
-                    </div>
+                <div class="menuCell">
+                    <a href="/User/All">Список избранных велосипедов</a>
+                </div>
 
-                    <div class="menuCell">
-                        <a href="/Bike/All">список велосипедов</a>
-                    </div>
+                <div class="menuCell">
+                    <a href="/User/All">сравнение избранных</a>
+                </div>
 
-                    <div class="menuCell">
-                        <a href="/User/All">Список пользователей</a>
-                    </div>
-
-                    <div class="menuCell">
-                        <a href="/User/All">велосипеды по фильтрам и цене</a>
-                    </div>
-
-                    <div class="menuCell">
-                        <a href="/User/All">Список избранных велосипедов</a>
-                    </div>
-
-                    <div class="menuCell">
-                        <a href="/User/All">сравнение избранных</a>
-                    </div>
-
-                    <div class="menuCell">
-                        <a href="/User/All">страница пользователя</a>
-                    </div>
-
+                <div class="menuCell">
+                    <a href="/User/All">страница пользователя</a>
                 </div>
 
             </div>
 
-            <div class="content">
-                @RenderBody()
-            </div>
-
         </div>
 
-        <div class="footer">
-
-            подвал
-
+        <div class="content">
+            @RenderBody()
         </div>
 
-    </body>
+    </div>
+
+    <div class="footer">
+
+        подвал
+
+    </div>
+
+</body>
 
 </html>

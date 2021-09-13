@@ -52,8 +52,8 @@ namespace WebApplication_Artur
             new UserRepository(container.GetService<ShopDbContext>())
             );
 
-            services.AddScoped<UserServices>(container =>
-            new UserServices(
+            services.AddScoped<UserService>(container =>
+            new UserService(
                 container.GetService<UserRepository>(),
                 container.GetService<IHttpContextAccessor>()
                 )
@@ -116,6 +116,8 @@ namespace WebApplication_Artur
 
             //Waht can I see?
             app.UseAuthorization();
+
+            app.UseMiddleware<LocalizeMidlleware>();
 
             app.UseEndpoints(endpoints =>
             {

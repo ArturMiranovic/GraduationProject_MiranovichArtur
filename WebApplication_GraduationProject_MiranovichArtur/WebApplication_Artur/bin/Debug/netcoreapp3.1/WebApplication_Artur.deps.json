@@ -313,6 +313,11 @@
         "runtime": {
           "WebApplication_Artur.dll": {}
         },
+        "resources": {
+          "Ru/WebApplication_Artur.resources.dll": {
+            "locale": "Ru"
+          }
+        },
         "compile": {
           "WebApplication_Artur.dll": {}
         }

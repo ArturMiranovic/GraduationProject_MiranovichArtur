@@ -1,12 +1,15 @@
 ﻿@model List<UserForRemoveVieqModel>
 
 
-    <div>
+<div>
 
-        @foreach (var user in Model)
-        {
-            <div>
-                @user.Login <a href="/User/Remove?id=@user.Id&">удалить</a>
-            </div>
-        }
-    </div>
+    @foreach (var user in Model)
+    {
+        <div>
+
+            <img src="@user.Awatar" alt="Awatar" />
+
+            @user.Login <a href="/User/Remove?id=@user.Id&">@WebApplication_Artur.Localize.Lang.DeleteUser</a>
+        </div>
+    }
+</div>

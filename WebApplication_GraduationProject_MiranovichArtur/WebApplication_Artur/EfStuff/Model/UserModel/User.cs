@@ -15,6 +15,10 @@ namespace WebApplication_Artur.EfStuff.Model.UserModel
 
         public string Awatar { get; set; }
 
+        public Role Role { get; set; }
+
+        public Lang Lang { get; set; }
+
         public virtual UserInformation UserInformation { get; set; }
 
         public virtual List<Bike> MyBikes { get; set; }

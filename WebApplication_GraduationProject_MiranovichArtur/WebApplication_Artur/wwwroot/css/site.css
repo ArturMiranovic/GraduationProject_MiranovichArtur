@@ -1,9 +1,10 @@
 ﻿.header {
-    background: #D0CDFA;
-    font-size: 30px;
-    text-align: center;
+    background: #4f97d4b0;
     height: 60px;
     padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0px 3px 6px 0px #25448233;
 }
 
 .center-block {
@@ -16,9 +17,9 @@
     height: 100%;
     min-width: 100px;
     max-width: 200px;
-    background: #EEFD6C;
+    background: #d1e6f1;
     border: 3px;
-
+    box-shadow: 2px 0px 6px 0px #25448233;
 }
 
 .menuCell {
@@ -43,4 +44,17 @@
 
 .body {
     margin: 0px;
+}
+
+.name-of-the-site {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.user {
+    display: flex;
+    align-items: flex-end;
 }

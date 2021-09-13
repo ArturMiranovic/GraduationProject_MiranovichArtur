@@ -19,10 +19,9 @@ namespace WebApplication_Artur.Controllers
 
         private IMapper _mapper;
         private BikeRepository _bikeRepository; 
-        private UserServices _userServices;
-        //private IHttpContextAccessor _httpContextAccessor;
+        private UserService _userServices;
 
-        public BikeController(ShopDbContext shopDbContext, IMapper mapper, BikeRepository bikeRepository, UserServices userServices)
+        public BikeController(ShopDbContext shopDbContext, IMapper mapper, BikeRepository bikeRepository, UserService userServices)
         {
             _mapper = mapper;
             _bikeRepository = bikeRepository;
@@ -64,12 +63,10 @@ namespace WebApplication_Artur.Controllers
 
             _bikeRepository.Save(bike);
 
-            return RedirectToActionPermanent("PageBike", bike.Id);
+            var idBike = bike.Id;   //что по назвнию???
+
+            return RedirectToActionPermanent("PageBike", "Bike", new { idBike });
         }
-
-
-
-
 
         public IActionResult PageBike(long idBike)
         {
@@ -80,6 +77,5 @@ namespace WebApplication_Artur.Controllers
 
             return View(viewmodel);
         }
-
     }
 }
