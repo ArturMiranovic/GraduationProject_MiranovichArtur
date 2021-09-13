@@ -8,7 +8,9 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
     public class Brake : BaseModel
     {
 
-        public double BrakeSize { get; set; }
+        public long Diametr { get; set; }
+
+        //public double BrakeSize { get; set; }
 
         public virtual List<Bike> Bikes { get; set; }
 

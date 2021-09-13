@@ -7,5 +7,13 @@ namespace WebApplication_Artur.Models
 {
     public class BrakeViewModel
     {
+        public long Id { get; set; }
+
+        public string Name { get; set; }
+
+        public long Diametr { get; set; }
+
+        public double BrakeSize { get; set; }
+
     }
 }

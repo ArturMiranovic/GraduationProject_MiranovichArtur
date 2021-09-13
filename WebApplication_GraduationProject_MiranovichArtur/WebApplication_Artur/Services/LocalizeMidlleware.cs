@@ -25,7 +25,15 @@ namespace WebApplication_Artur.Services
 
             if (user == null)
             {
-                CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-EN");
+                if (!context.Request.Cookies.Any(x => x.Key == "lang"))
+                {
+                    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-EN");
+                }
+                else
+                {
+                    var cultureName = context.Request.Cookies["lang"];
+                    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(cultureName);
+                } 
             }
             else
             {
@@ -40,7 +48,7 @@ namespace WebApplication_Artur.Services
                         break;
 
                     case EfStuff.Model.UserModel.Lang.Es:
-                        CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("es-Es");
+                        CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("es-ES");
                         break;
                 }
             }

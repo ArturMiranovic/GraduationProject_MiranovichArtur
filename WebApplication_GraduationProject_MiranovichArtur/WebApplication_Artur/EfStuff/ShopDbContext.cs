@@ -22,7 +22,7 @@ namespace WebApplication_Artur.EfStuff
 
         public DbSet<Bike> Bikes { get; set; }
         public DbSet<Brake> Brakes { get; set; }
-        public DbSet<Switch> Switches { get; set; }
+        public DbSet<GearSelector> Switches { get; set; }
         public DbSet<Wheel> Wheels { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

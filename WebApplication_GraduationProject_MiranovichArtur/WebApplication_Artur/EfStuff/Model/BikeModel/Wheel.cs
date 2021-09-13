@@ -10,7 +10,7 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 
         public int Diameter { get; set; }
 
-        public double WhellSize { get; set; }
+        //public double WhellSize { get; set; }
 
         public virtual List<Bike> Bikes { get; set; }
 

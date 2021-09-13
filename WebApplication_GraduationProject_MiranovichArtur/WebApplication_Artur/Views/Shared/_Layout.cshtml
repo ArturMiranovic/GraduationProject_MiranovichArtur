@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="~/css/home.css" />
     <link rel="stylesheet" href="~/css/bike.css" />
 
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/localize.js"></script>
+    @RenderSection("Head", false)
 </head>
 
 <body class="body">
@@ -59,6 +62,10 @@
                 </div>
 
                 <div class="menuCell">
+                    <a href="/User/All">Продажа запчастей spares</a>
+                </div>
+
+                <div class="menuCell">
                     <a href="/User/All">велосипеды по фильтрам и цене</a>
                 </div>
 
@@ -85,6 +92,14 @@
     </div>
 
     <div class="footer">
+
+        <select class="language">
+
+            <option value="1">RU</option>
+            <option value="2">EN</option>
+            <option value="3">ES</option>
+
+        </select>
 
         подвал
 

@@ -19,6 +19,8 @@ namespace WebApplication_Artur.EfStuff.Model.UserModel
 
         public Lang Lang { get; set; }
 
+        public Сurrency Сurrency { get; set; }
+
         public virtual UserInformation UserInformation { get; set; }
 
         public virtual List<Bike> MyBikes { get; set; }
