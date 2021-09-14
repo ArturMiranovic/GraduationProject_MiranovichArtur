@@ -1,5 +1,10 @@
 ﻿@model RegistrationViewModel
 
+@section Head{
+    <script src="~/js/registration.js"></script>
+}
+
+
 <form action="/User/Registration" method="post">
 
     <div>
@@ -8,7 +13,7 @@
             @WebApplication_Artur.Localize.Lang.YourName
         </div>
 
-        <div>
+        <div class="textBox">
             @Html.TextBoxFor(x => x.Name)
         </div>
 
@@ -20,7 +25,7 @@
             @WebApplication_Artur.Localize.Lang.SpecifyMail
         </div>
 
-        <div>
+        <div class="textBox">
             @Html.TextBoxFor(x => x.Login)
         </div>
 
@@ -28,11 +33,11 @@
 
     <div>
 
-        <div>
+        <div class="textBox">
             @WebApplication_Artur.Localize.Lang.PickAPassword
         </div>
 
-        <div>
+        <div class="textBox">
             @Html.TextBoxFor(x => x.Password)
         </div>
 

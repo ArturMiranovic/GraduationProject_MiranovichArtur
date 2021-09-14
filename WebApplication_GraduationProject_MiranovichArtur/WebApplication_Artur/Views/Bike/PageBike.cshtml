@@ -1,54 +1,57 @@
 ﻿@model BikeViewModel
 
 <div>
-
-    <div>
-
-        страница отдельного велосипеда
-
-    </div>
-
     <div>
 
         Модель велосипеда - @Model.Name
 
     </div>
+    <div class="pageBikeContent">
 
-    <div>
-
-        Стоимость - @Model.Price
-
-    </div>
-
-    <div>
-
-        тут должна быть ссылка на редоктирование/изменение данных
-
-    </div>
-
-    <div>
-        @foreach (var CommentUs in @Model.Comments)
-        {
+        <div>
+            <img src="@Model.Page" alt="Page" />
 
             <div>
-                Имя юзера  @CommentUs.User 
+               редактировать фото
+            </div>
+
+        </div>
+
+        <div>
+
+            <div>
+                характеристики компанентов
             </div>
 
             <div>
-                Его комент @CommentUs.Name
+                цена
             </div>
 
             <div>
-                -------------------------------
+                редактировать характеристики
             </div>
 
-        }
+            <div>
+                @foreach (var CommentUs in @Model.Comments)
+                {
 
-    </div>
+                    <div>
+                        Имя юзера  @CommentUs.User
+                    </div>
 
-    <div>
+                    <div>
+                        Его комент @CommentUs.Name
+                    </div>
 
-        удалить байк
+                    <div>
+                        -------------------------------
+                    </div>
+
+                }
+
+            </div>
+
+        </div>
 
     </div>
 

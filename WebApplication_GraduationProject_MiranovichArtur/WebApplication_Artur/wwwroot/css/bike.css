@@ -28,4 +28,16 @@
     flex: 1;
 }
 
+.pageBikeContent {
+    display: flex;
+}
+
+.oneFotoBike {
+    width: 500px;
+}
+
+.tthBike {
+    flex: 1;
+}
+
 

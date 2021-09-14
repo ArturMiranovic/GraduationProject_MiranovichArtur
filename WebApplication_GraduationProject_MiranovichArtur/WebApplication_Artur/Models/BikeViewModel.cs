@@ -18,6 +18,8 @@ namespace WebApplication_Artur.Models
 
         public long BikeSize { get; set; }
 
+        public string Page { get; set; }
+
         public BikeClass BikeClass { get; set; }
 
         public BrakeViewModel BrakeViewModel { get; set; }

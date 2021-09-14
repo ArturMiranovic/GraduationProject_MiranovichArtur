@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using System.Threading;
 
 namespace WebApplication_Artur.Controllers
 {
@@ -71,6 +72,7 @@ namespace WebApplication_Artur.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -87,18 +89,11 @@ namespace WebApplication_Artur.Controllers
             
             var user = _mapper.Map<User>(viewmodel);
 
-            //var user = new User()
-            //{
-            //    Login = viewmodel.Login,
-            //    Password = viewmodel.Password
-            //};
-
             _userRepository.Save(user);
 
-            //_shopDbContext.Users.Add(user);
-            //_shopDbContext.SaveChanges();
+            Login(viewmodel);
 
-            return RedirectToActionPermanent("Index", "Home");
+            return RedirectToActionPermanent("All", "Bike");
         }
 
         public IActionResult All()
@@ -108,28 +103,21 @@ namespace WebApplication_Artur.Controllers
 
             var viewModels = _mapper.Map<List<UserForRemoveVieqModel>>(allUser);
 
-            //var viewModels = allUser
-            //    .Select(x => new UaerForRemoveVieqModel()
-            //    {
-            //        Id = x.Id,
-            //        Login = x.Login
-            //    }).ToList();
-
             return View(viewModels);
         }
-
-
 
         public IActionResult Remove(long id)
         {
 
             _userRepository.Remove(id);
 
-            //var user = _shopDbContext.Users.Single(x => x.Id == id);
-            //_shopDbContext.Users.Remove(user);
-            //_shopDbContext.SaveChanges();
-
             return RedirectToActionPermanent("All");
         }
+
+        public IActionResult IsUniq(string login) => Json(!_userRepository.Exist(login));
+
+        public IActionResult IsUniqPassword(string password) => Json(password?.LongCount() > 3);
+
+        public IActionResult IsUniqName(string name) => Json(name?.LongCount() > 1);
     }
 }
