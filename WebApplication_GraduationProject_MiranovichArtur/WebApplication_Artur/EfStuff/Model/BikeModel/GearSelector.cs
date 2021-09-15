@@ -11,9 +11,7 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 
         public int Rearstars { get; set; }
 
-        //public double SwitchSize { get; set; }
-
-        public virtual List<Bike> Bikes { get; set; }
+        public virtual Bike Bike { get; set; }
 
     }
 }

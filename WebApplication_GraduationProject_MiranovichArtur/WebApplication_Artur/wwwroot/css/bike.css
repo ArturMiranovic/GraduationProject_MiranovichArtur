@@ -24,7 +24,7 @@
 
 .invisibleFrame {
     min-width: 150px;
-    max-width: 200px;
+    max-width: 300px;
     flex: 1;
 }
 
@@ -41,3 +41,14 @@
 }
 
 
+.imageBikeAll {
+    display: flex;
+    justify-content: center;
+}
+
+.logoBikeGalerey {
+    max-height: 140px;
+    max-width: 100px;
+    box-shadow: 3px 4px 4px 0px #0a0f174d;
+    border-radius: 8px;
+}

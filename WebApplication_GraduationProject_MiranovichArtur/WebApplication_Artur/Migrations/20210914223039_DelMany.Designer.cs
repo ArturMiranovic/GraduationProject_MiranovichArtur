@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication_Artur.EfStuff;
 
 namespace WebApplication_Artur.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210914223039_DelMany")]
+    partial class DelMany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,7 +56,8 @@ namespace WebApplication_Artur.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Page")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("/image/defaultBike.png");
 
                     b.Property<long>("Price")
                         .HasColumnType("bigint");
@@ -156,7 +159,8 @@ namespace WebApplication_Artur.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Awatar")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("/image/DefaultAvatar_V2.png");
 
                     b.Property<int>("Lang")
                         .HasColumnType("int");

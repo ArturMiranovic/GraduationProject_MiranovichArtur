@@ -21,11 +21,11 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 
         public virtual List<User> PotentialBuyer { get; set; }
 
-        public virtual List<GearSelector> Switches { get; set; }
+        public virtual GearSelector GearSelector { get; set; }
 
-        public virtual List<Wheel> Wheels { get; set; }
+        public virtual Wheel Wheel { get; set; }
 
-        public virtual List<Brake> Brakes { get; set; }
+        public virtual Brake Brake { get; set; }
         
         public virtual List<Comment> Comments { get; set; }
     }

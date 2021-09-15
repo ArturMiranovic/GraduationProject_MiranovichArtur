@@ -46,16 +46,19 @@ namespace WebApplication_Artur.EfStuff
 
 
             modelBuilder.Entity<Bike>()
-                .HasMany(x => x.Brakes)
-                .WithMany(x => x.Bikes);
+                .HasOne(x => x.Brake)
+                .WithOne(x => x.Bike)
+                .HasForeignKey<Brake>(b => b.Id);
 
             modelBuilder.Entity<Bike>()
-                .HasMany(x => x.Switches)
-                .WithMany(x => x.Bikes);
+                .HasOne(x => x.GearSelector)
+                .WithOne(x => x.Bike)
+                .HasForeignKey<GearSelector>(b => b.Id); ;
 
             modelBuilder.Entity<Bike>()
-                .HasMany(x => x.Wheels)
-                .WithMany(x => x.Bikes);
+                .HasOne(x => x.Wheel)
+                .WithOne(x => x.Bike)
+                .HasForeignKey<Wheel>(b => b.Id); ;
 
             modelBuilder.Entity<Bike>()
                 .HasMany(x => x.Comments)

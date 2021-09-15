@@ -63,9 +63,7 @@ namespace WebApplication_Artur.Controllers
 
             _bikeRepository.Save(bike);
 
-            var idBike = bike.Id;   //что по назвнию???
-
-            return RedirectToActionPermanent("PageBike", "Bike", new { idBike });
+            return RedirectToActionPermanent("PageBike", "Bike", new { idBike = bike.Id });
         }
 
         public IActionResult PageBike(long idBike)

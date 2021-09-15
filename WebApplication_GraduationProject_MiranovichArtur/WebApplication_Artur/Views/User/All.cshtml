@@ -5,11 +5,12 @@
 
     @foreach (var user in Model)
     {
-        <div>
+    <div>
 
-            <img src="@user.Awatar" alt="Awatar" />
+        <img src="@user.Awatar" class="logoBikeGalerey" />
+        <img src="@user.Awatar" alt="Awatar" />
 
-            @user.Login <a href="/User/Remove?id=@user.Id&">@WebApplication_Artur.Localize.Lang.DeleteUser</a>
-        </div>
+        @user.Login <a href="/User/Remove?id=@user.Id&">@WebApplication_Artur.Localize.Lang.DeleteUser</a>
+    </div>
     }
 </div>

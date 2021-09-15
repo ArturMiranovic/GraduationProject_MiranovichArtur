@@ -10,7 +10,6 @@
 .center-block {
     display: flex;
     height: 100%;
-    margin-bottom: 40px;
 }
 
 .menu {
@@ -33,13 +32,13 @@
 }
 
 .footer {
-    position: fixed; /* Фиксированное положение */
-    left: 0;
-    bottom: 0; /* Левый нижний угол */
-    padding: 11px; /* Поля вокруг текста */
-    background: #39b54a; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
+    /* position: fixed; */
+    /* left: 0; */
+    /* bottom: 0; */
+    padding: 11px;
+    background: #39b54a;
+    color: #fff;
+    /* width: 100%;*/
 }
 
 .body {
@@ -56,5 +55,9 @@
 
 .user {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    background: #eff3f8;
+    border-radius: 100px;
+    justify-content: center;
+    padding: 18px;
 }
