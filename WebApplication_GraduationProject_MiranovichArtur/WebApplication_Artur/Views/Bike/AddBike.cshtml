@@ -1,4 +1,6 @@
-﻿@model AddBikeViewModel
+﻿@using (Html.BeginForm())
+
+@model AddBikeViewModel
 
 
 <form action="/Bike/AddBike" method="post">
@@ -26,9 +28,42 @@
 
     </div>
 
-        <div class="inutRegistration">
-            <input type="submit" value="Выставить" />
+    <div>
+
+        <div>
+            Класс велосипеда:
         </div>
+
+        <div>
+            <select class="BikeClass" id="BikeClass" name="BikeClass">
+
+                <option value="0">Mountain Bike</option>
+                <option value="1">Road Bike</option>
+                <option value="2">Touring  Bike</option>
+                <option value="3">Gravel Bike</option>
+
+            </select>
+        </div>
+
+    </div>
+
+    <div class="inutRegistration">
+        <p><input type="submit" value="Выставить" onclick="getValue()" /></p>
+</div>
+
+    @*<script>
+
+            let mySelectOption = getValue; // - полученное из функции значение прсвоим в переменную и используем где нужно))
+
+            function getValue() {
+                let selectedValue = select.value;
+                console.log(selectedValue);
+                return selectedValue;
+            }
+
+
+        </script>*@
+
 
 
 </form>

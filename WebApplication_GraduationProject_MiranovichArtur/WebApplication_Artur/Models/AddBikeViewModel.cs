@@ -12,5 +12,7 @@ namespace WebApplication_Artur.Models
 
         public long Price { get; set; }
 
+        public BikeClass BikeClass { get; set; }
+
     }
 }

@@ -7,9 +7,11 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 {
     public enum BikeClass
     {
+        Mountain = 0,
         Road = 1,
-        Mountain = 2,
-        Touring = 3,
-        Gravel = 4,
+        Touring = 2,
+        Gravel = 3,
     }
+
+
 }

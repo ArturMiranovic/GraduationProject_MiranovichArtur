@@ -21,9 +21,7 @@ namespace WebApplication_Artur.EfStuff
         public DbSet<UserInformation> UserInformation { get; set; }
 
         public DbSet<Bike> Bikes { get; set; }
-        public DbSet<Brake> Brakes { get; set; }
-        public DbSet<GearSelector> Switches { get; set; }
-        public DbSet<Wheel> Wheels { get; set; }
+        public DbSet<Shared> Switches { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -47,21 +45,10 @@ namespace WebApplication_Artur.EfStuff
                 .WithOne(x => x.User)
                 .HasForeignKey<UserInformation>(b => b.UserId);
 
-
             modelBuilder.Entity<Bike>()
-                .HasOne(x => x.Brake)
+                .HasOne(x => x.Shared)
                 .WithOne(x => x.Bike)
-                .HasForeignKey<Brake>(b => b.Id);
-
-            modelBuilder.Entity<Bike>()
-                .HasOne(x => x.GearSelector)
-                .WithOne(x => x.Bike)
-                .HasForeignKey<GearSelector>(b => b.Id); ;
-
-            modelBuilder.Entity<Bike>()
-                .HasOne(x => x.Wheel)
-                .WithOne(x => x.Bike)
-                .HasForeignKey<Wheel>(b => b.Id); ;
+                .HasForeignKey<Shared>(b => b.Id); ;
 
             modelBuilder.Entity<Bike>()
                 .HasMany(x => x.Comments)

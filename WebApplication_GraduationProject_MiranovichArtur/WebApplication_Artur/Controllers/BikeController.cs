@@ -11,6 +11,7 @@ using AutoMapper;
 using WebApplication_Artur.EfStuff.Repositories;
 using WebApplication_Artur.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApplication_Artur.Controllers
 {
@@ -41,6 +42,7 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Remove(long id)
         {
 
+
             _bikeRepository.Remove(id);
 
             return RedirectToActionPermanent("All");
@@ -49,6 +51,7 @@ namespace WebApplication_Artur.Controllers
         [HttpGet]
         public IActionResult AddBike()
         {
+
 
             return View();
         }

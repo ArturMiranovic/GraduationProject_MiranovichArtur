@@ -9,7 +9,7 @@
     padding: 8px;
     margin: 10px;
     box-shadow: 5px 4px 6px 0px #25448233;
-    height: 150px;
+/*    height: 150px;*/
     border-radius: 8px;
 }
 
@@ -52,4 +52,45 @@
     max-width: 100px;
     box-shadow: 3px 4px 4px 0px #0a0f174d;
     border-radius: 8px;
+}
+
+.pageBikeName {
+    margin: 15px;
+    font-size: 250%;
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+}
+
+.pageBikeContent {
+    flex: 1;
+    margin: 50px;
+}
+
+.pageBikeInfo {
+    margin: 15px;
+    font-size: 120%;
+    display: flex;
+    flex: 1;
+    font-family: cursive;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bigPageBike {
+    border-radius: 15px;
+    box-shadow: 3px 4px 4px 0px #0a0f174d;
+}
+
+.change {
+    font-size: 120%;
+    margin: 15px;
+    font-family: cursive;
+}
+
+.bikeDel {
+    max-height: 30px;
+    max-width: 30px;
+    box-shadow: 1px 1px 0px 0px #0a0f174d;
+    border-radius: 50px;
 }

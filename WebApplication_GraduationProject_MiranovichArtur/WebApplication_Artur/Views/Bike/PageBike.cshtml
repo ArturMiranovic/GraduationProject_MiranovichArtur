@@ -1,58 +1,68 @@
 ﻿@model BikeViewModel
 
 <div>
-    <div>
+    <div class="pageBikeName-Delete">
 
-        Модель велосипеда - @Model.Name
+        <div class="pageBikeName">
+            Модель велосипеда - @Model.Name
+        </div>
+
+        <div class="bikeDeket">
+                <a class="linqCollor" href="/Bike/Remove">
+                    <img src="~/image/Delete2.png" alt="@WebApplication_Artur.Localize.Lang.DeleteUser" class="bikeDel" id="2" />
+                </a> 
+        </div>
 
     </div>
     <div class="pageBikeContent">
 
         <div>
-            <img src="@Model.Page" alt="Page" />
+            <img src="@Model.Page" alt="Page" class="bigPageBike" />
 
-            <div>
-               редактировать фото
+            <div class="change">
+                редактировать фото
             </div>
 
         </div>
 
-        <div>
+        <div class="pageBikeInfo">
 
             <div>
                 характеристики компанентов
             </div>
 
             <div>
-                цена
+                <div class="bikeLing">
+                    <a class="linqCollor" href="/Spared/AddBrake">редактироваь ттх</a>
+                </div>
             </div>
 
             <div>
-                редактировать характеристики
-            </div>
-
-            <div>
-                @foreach (var CommentUs in @Model.Comments)
-                {
-
-                    <div>
-                        Имя юзера  @CommentUs.User
-                    </div>
-
-                    <div>
-                        Его комент @CommentUs.Name
-                    </div>
-
-                    <div>
-                        -------------------------------
-                    </div>
-
-                }
-
+                редактироваь цену / цена
             </div>
 
         </div>
 
+    </div>
+
+    <div>
+        @foreach (var CommentUs in @Model.Comments)
+        {
+
+            <div>
+                Имя юзера  @CommentUs.User
+            </div>
+
+            <div>
+                Его комент @CommentUs.Name
+            </div>
+
+            <div>
+                -------------------------------
+            </div>
+
+        }
+        комментарии
     </div>
 
 </div>

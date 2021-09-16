@@ -11,9 +11,7 @@ namespace WebApplication_Artur.Models
 
         public string Name { get; set; }
 
-        public long Diametr { get; set; }
-
-        public double BrakeSize { get; set; }
+        public string Diametr { get; set; }
 
     }
 }
