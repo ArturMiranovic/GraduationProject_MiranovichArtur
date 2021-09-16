@@ -1,6 +1,7 @@
 ﻿.galerey-all-bike {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .galerey-one-bike {
@@ -23,9 +24,9 @@
 }
 
 .invisibleFrame {
-    min-width: 150px;
-    max-width: 300px;
-    flex: 1;
+    /*    min-width: 150px;
+    max-width: 300px;*/
+    width: 200px;
 }
 
 .pageBikeContent {

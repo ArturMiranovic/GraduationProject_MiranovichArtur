@@ -12,6 +12,8 @@ namespace WebApplication_Artur.Models
 
         public string Login { get; set; }
 
+        public string Name { get; set; }
+
         public string Awatar { get; set; }
 
     }

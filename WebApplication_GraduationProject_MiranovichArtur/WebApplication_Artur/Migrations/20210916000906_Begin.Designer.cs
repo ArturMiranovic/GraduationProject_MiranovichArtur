@@ -10,8 +10,8 @@ using WebApplication_Artur.EfStuff;
 namespace WebApplication_Artur.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20210914223039_DelMany")]
-    partial class DelMany
+    [Migration("20210916000906_Begin")]
+    partial class Begin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,8 +56,9 @@ namespace WebApplication_Artur.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Page")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("/image/defaultBike.png");
+                        .HasDefaultValue("/image/defaultBike1.png");
 
                     b.Property<long>("Price")
                         .HasColumnType("bigint");
@@ -159,6 +160,7 @@ namespace WebApplication_Artur.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Awatar")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
                         .HasDefaultValue("/image/DefaultAvatar_V2.png");
 

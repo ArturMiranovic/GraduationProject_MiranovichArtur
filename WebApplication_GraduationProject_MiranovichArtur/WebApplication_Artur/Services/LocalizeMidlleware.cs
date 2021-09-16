@@ -31,9 +31,9 @@ namespace WebApplication_Artur.Services
                 }
                 else
                 {
-                    var cultureName = context.Request.Cookies["lang"];
+                       var cultureName = context.Request.Cookies["lang"];
                     CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(cultureName);
-                } 
+                }
             }
             else
             {

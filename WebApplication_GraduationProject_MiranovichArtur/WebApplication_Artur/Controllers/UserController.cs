@@ -37,7 +37,7 @@ namespace WebApplication_Artur.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(RegistrationViewModel viewModel)
+        public IActionResult Login(RegistrationViewModel viewModel)
         {
             var user = _userRepository.Get(viewModel.Login, viewModel.Password);
 
@@ -45,12 +45,24 @@ namespace WebApplication_Artur.Controllers
             {
                 ModelState.AddModelError(nameof(RegistrationViewModel.Login),
                     "Неверный логин или пароль");
-                return View(viewModel);
+                return View();
             }
 
+            Voidentrance(user);
+
+            if (string.IsNullOrEmpty(viewModel.ReturnUrl))
+            {
+                return Redirect("/");
+            }
+            return Redirect(viewModel.ReturnUrl);
+        }
+
+        private async void Voidentrance(User user)
+        {
             var claims = new List<Claim>();
-            claims.Add(new Claim("Id", user.Id.ToString()));  //заменить Id на ClaimTypes
+            claims.Add(new Claim("Id", user.Id.ToString()));
             claims.Add(new Claim(ClaimTypes.Name, user.Login));
+            claims.Add(new Claim("Lang", user.Lang.ToString()));
             claims.Add(new Claim(
                 ClaimTypes.AuthenticationMethod,
                 Startup.AuthName));
@@ -61,12 +73,6 @@ namespace WebApplication_Artur.Controllers
 
             await HttpContext.SignInAsync(claimsPrincipal);
 
-            if (string.IsNullOrEmpty(viewModel.ReturnUrl))
-            {
-                return Redirect("/");
-            }
-
-            return Redirect(viewModel.ReturnUrl);
         }
 
         public async Task<IActionResult> Logout()
@@ -91,9 +97,9 @@ namespace WebApplication_Artur.Controllers
 
             _userRepository.Save(user);
 
-            Login(viewmodel);
+            Voidentrance(user);
 
-            return RedirectToActionPermanent("All", "Bike");
+            return RedirectToActionPermanent("Index", "Home");
         }
 
         public IActionResult All()
@@ -109,7 +115,7 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Remove(long id)
         {
 
-            _userRepository.Remove(id);
+            _userRepository.RemoveUser(id);
 
             return RedirectToActionPermanent("All");
         }

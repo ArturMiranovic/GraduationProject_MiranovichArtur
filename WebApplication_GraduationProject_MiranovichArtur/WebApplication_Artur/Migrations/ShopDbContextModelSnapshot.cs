@@ -54,7 +54,9 @@ namespace WebApplication_Artur.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Page")
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("/image/defaultBike1.png");
 
                     b.Property<long>("Price")
                         .HasColumnType("bigint");
@@ -156,7 +158,9 @@ namespace WebApplication_Artur.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Awatar")
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("/image/DefaultAvatar_V2.png");
 
                     b.Property<int>("Lang")
                         .HasColumnType("int");

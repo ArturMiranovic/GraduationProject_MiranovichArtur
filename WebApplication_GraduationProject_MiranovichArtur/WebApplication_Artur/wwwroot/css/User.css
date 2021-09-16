@@ -1,3 +1,45 @@
 ﻿.inutRegistration { 
     margin-top: 10px;
 }
+
+.logoUsersAll {
+    max-height: 60px;
+    max-width: 60px;
+    box-shadow: 3px 4px 4px 0px #0a0f174d;
+    border-radius: 50px;
+}
+
+.infoDelUser {
+    background: #d1e6f1;
+    box-shadow: 3px 4px 4px 0px #0a0f174d;
+    border-radius: 50px;
+    padding: 8px;
+    margin: 10px;
+    min-height: 60px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoUsersDel {
+    max-height: 30px;
+    max-width: 30px;
+    box-shadow: 1px 1px 0px 0px #0a0f174d;
+    border-radius: 50px;
+
+
+}
+
+.muwInputDelet {
+    width: 43px;
+}
+
+.oneUserDelet {
+    flex: 1;
+}
+
+.oneUserDeletText {
+    margin: 10px;
+    font-size: 170%;
+}
+
