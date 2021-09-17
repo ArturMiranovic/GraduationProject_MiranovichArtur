@@ -7,7 +7,7 @@ $(document).ready(function () {
         var self = $(this);
         var currentLogin = self.val();
 
-        var url = '/User/IsUniq?login=' + currentLogin;
+        var url = '/User/IsUniqLogin?login=' + currentLogin;
         var promise = $.get(url);
         promise.done(function (respone) {
             $('.icon').hide();

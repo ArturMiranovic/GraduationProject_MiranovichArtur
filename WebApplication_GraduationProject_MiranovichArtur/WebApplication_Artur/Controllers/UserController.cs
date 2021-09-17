@@ -54,6 +54,7 @@ namespace WebApplication_Artur.Controllers
             {
                 return Redirect("/");
             }
+
             return Redirect(viewModel.ReturnUrl);
         }
 
@@ -92,7 +93,11 @@ namespace WebApplication_Artur.Controllers
         [HttpPost]
         public IActionResult Registration(RegistrationViewModel viewmodel)
         {
-            
+            if (!ModelState.IsValid)
+            {
+                return View(viewmodel);
+            }
+
             var user = _mapper.Map<User>(viewmodel);
 
             _userRepository.Save(user);
@@ -121,10 +126,19 @@ namespace WebApplication_Artur.Controllers
             return RedirectToActionPermanent("All");
         }
 
-        public IActionResult IsUniq(string login) => Json(!_userRepository.Exist(login));
+        public IActionResult RemoveMy(long id)
+        {
+
+            _userRepository.RemoveUser(id);
+
+            return RedirectToActionPermanent("Logout");
+        }
+
+        public IActionResult IsUniqLogin(string login) => Json(!_userRepository.Exist(login) && login.Count()>1);
 
         public IActionResult IsUniqPassword(string password) => Json(password?.LongCount() > 3);
 
         public IActionResult IsUniqName(string name) => Json(name?.LongCount() > 1);
+
     }
 }

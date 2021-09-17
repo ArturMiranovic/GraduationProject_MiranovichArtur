@@ -15,6 +15,7 @@
 
         <div class="textBox">
             @Html.TextBoxFor(x => x.Name)
+            @Html.ValidationMessageFor(x => x.Name)
         </div>
 
     </div>
@@ -27,6 +28,7 @@
 
         <div class="textBox">
             @Html.TextBoxFor(x => x.Login)
+            @Html.ValidationMessageFor(x => x.Login)
         </div>
 
     </div>
@@ -39,6 +41,7 @@
 
         <div class="textBox">
             @Html.TextBoxFor(x => x.Password)
+            @Html.ValidationMessageFor(x => x.Password)
         </div>
 
     </div>

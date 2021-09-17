@@ -23,7 +23,14 @@
 
 .menuCell {
     padding: 8px;
+    transition-property: background-color;
+    transition-duration: 0.2s;
 }
+
+    .menuCell:hover {
+        background-color: #aac5d4;
+        transition-duration: 0.07s;
+    }
 
 .content {
     padding: 8px;
@@ -65,4 +72,13 @@
 .linqCollor {
     text-decoration: none;
     color: #27292b;
+}
+
+.exit-registration {
+    display: flex;
+    align-items: center;
+    background: #eff3f8;
+    border-radius: 100px;
+    justify-content: center;
+    padding: 18px;
 }

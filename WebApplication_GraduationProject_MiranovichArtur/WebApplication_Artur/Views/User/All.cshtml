@@ -20,17 +20,14 @@
 
             </div>
 
-
             <div class="muwInputDelet">
 
-
-                @if (userService.IsDontAnminMyUser(user.Id))
-                {
-                    <a href="/User/Remove?id=@user.Id" class="imputDelet">
-                        <img src="~/image/Delete2.png" alt="@WebApplication_Artur.Localize.Lang.DeleteUser" class="logoUsersDel" id="1" />
-                    </a>
-                }
-
+                    @if (userService.IsDontAnminMyUser(user.Id))
+                    {
+                        <a href="/User/RemoveMy?id=@user.Id" class="imputDelet">
+                            <img src="~/image/Delete2.png" alt="@WebApplication_Artur.Localize.Lang.DeleteUser" class="logoUsersDel" id="1" />
+                        </a>
+                    }
 
             </div>
 

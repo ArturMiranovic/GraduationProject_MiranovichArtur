@@ -1,5 +1,4 @@
-﻿@using (Html.BeginForm())
-@using WebApplication_Artur.Localize;
+﻿@using WebApplication_Artur.Localize;
 
 @model AddBikeViewModel
 
@@ -25,6 +24,7 @@
 
         <div>
             @Html.TextBoxFor(x => x.Price)
+            @Html.ValidationMessageFor(x => x.Price)
         </div>
 
     </div>
