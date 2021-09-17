@@ -5,16 +5,14 @@ using System.Threading.Tasks;
 
 namespace WebApplication_Artur.Models
 {
-    public class UserForRemoveVieqModel
+    public class UserLoginViewModel
     {
-
-        public long Id { get; set; }
 
         public string Login { get; set; }
 
-        public string Name { get; set; }
+        public string Password { get; set; }
 
-        public string Awatar { get; set; }
+        public string ReturnUrl { get; set; }
 
     }
 }

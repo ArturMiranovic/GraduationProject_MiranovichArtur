@@ -11,7 +11,6 @@ namespace WebApplication_Artur.Models
     {
         public string Name { get; set; }
 
-        [Pris]
         public long Price { get; set; }
 
         public BikeClass BikeClass { get; set; }

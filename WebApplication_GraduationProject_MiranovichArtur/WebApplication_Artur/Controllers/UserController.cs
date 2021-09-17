@@ -31,19 +31,27 @@ namespace WebApplication_Artur.Controllers
             var returnUrl = Request.Query["ReturnUrl"].FirstOrDefault();
             var viewModel = new RegistrationViewModel()
             {
+
+                Name = "User",
                 ReturnUrl = returnUrl
             };
+
+            if (returnUrl == null)
+            {
+                return View(returnUrl);
+            }
+
             return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult Login(RegistrationViewModel viewModel)
+        public IActionResult Login(UserLoginViewModel viewModel)
         {
             var user = _userRepository.Get(viewModel.Login, viewModel.Password);
 
             if (user == null)
             {
-                ModelState.AddModelError(nameof(RegistrationViewModel.Login),
+                ModelState.AddModelError(nameof(UserLoginViewModel.Login),
                     "Неверный логин или пароль");
                 return View();
             }
@@ -112,7 +120,7 @@ namespace WebApplication_Artur.Controllers
 
             var allUser = _userRepository.GetAll();
 
-            var viewModels = _mapper.Map<List<UserForRemoveVieqModel>>(allUser);
+            var viewModels = _mapper.Map<List<UserViewModel>>(allUser);
 
             return View(viewModels);
         }

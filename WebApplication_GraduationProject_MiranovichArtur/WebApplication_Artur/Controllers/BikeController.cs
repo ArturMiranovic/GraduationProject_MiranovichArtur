@@ -12,6 +12,7 @@ using WebApplication_Artur.EfStuff.Repositories;
 using WebApplication_Artur.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication_Artur.Controllers
 {
@@ -48,7 +49,9 @@ namespace WebApplication_Artur.Controllers
             return RedirectToActionPermanent("All");
         }
 
+
         [HttpGet]
+        [Authorize]
         public IActionResult AddBike()
         {
 
