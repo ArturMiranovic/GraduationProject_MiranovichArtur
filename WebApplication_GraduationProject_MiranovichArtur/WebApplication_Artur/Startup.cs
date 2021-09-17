@@ -88,8 +88,8 @@ namespace WebApplication_Artur
 
             provider.CreateMap<User, UserForRemoveVieqModel>();
             provider.CreateMap<RegistrationViewModel, User>();
-            provider.CreateMap<Bike, SharedViewModel>();
-            provider.CreateMap<SharedViewModel, Bike>();
+            provider.CreateMap<Bike, SparesViewModel>();
+            provider.CreateMap<SparesViewModel, Bike>();
             provider.CreateMap<Bike, AddBikeViewModel>();
             provider.CreateMap<AddBikeViewModel, Bike>();
             provider.CreateMap<Bike, GalereyBikeViewModel>();

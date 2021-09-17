@@ -7,7 +7,7 @@ using WebApplication_Artur.EfStuff.Model.UserModel;
 
 namespace WebApplication_Artur.Models
 {
-    public class SharedViewModel
+    public class SparesViewModel
     {
 
         public long Id { get; set; }
@@ -19,6 +19,8 @@ namespace WebApplication_Artur.Models
         public long BikeSize { get; set; }
 
         public string Page { get; set; }
+
+        public string Diametr { get; set; }
 
         public BikeClass BikeClass { get; set; }
 
