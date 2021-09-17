@@ -48,21 +48,30 @@ namespace WebApplication_Artur
                     config.Cookie.Name = "ArturBikeUser";
                 });
 
-            services.AddScoped<UserRepository>(container =>
-            new UserRepository(container.GetService<ShopDbContext>())
-            );
 
-            services.AddScoped<UserService>(container =>
-            new UserService(
-                container.GetService<UserRepository>(),
-                container.GetService<IHttpContextAccessor>()
-                )
-            );
+            services.RegisterAssistant<UserService>();
 
-            services.AddScoped<BikeRepository>(container =>
-            new BikeRepository(
-                container.GetService<ShopDbContext>())
-            );
+            services.RegisterAssistant<UserRepository>();
+
+            services.RegisterAssistant<BikeService>();
+
+            services.RegisterAssistant<BikeRepository>();
+
+            //services.AddScoped<UserRepository>(container =>
+            //new UserRepository(container.GetService<ShopDbContext>())
+            //);
+
+            //services.AddScoped<UserService>(container =>
+            //new UserService(
+            //    container.GetService<UserRepository>(),
+            //    container.GetService<IHttpContextAccessor>()
+            //    )
+            //);
+
+            //services.AddScoped<BikeRepository>(container =>
+            //new BikeRepository(
+            //    container.GetService<ShopDbContext>())
+            //);
 
             services.AddDbContext<ShopDbContext>(x => x.UseSqlServer(connectString));
 
@@ -79,14 +88,14 @@ namespace WebApplication_Artur
 
             provider.CreateMap<User, UserForRemoveVieqModel>();
             provider.CreateMap<RegistrationViewModel, User>();
-            provider.CreateMap<Bike, BikeViewModel>();
-            provider.CreateMap<BikeViewModel, Bike>();
+            provider.CreateMap<Bike, SharedViewModel>();
+            provider.CreateMap<SharedViewModel, Bike>();
             provider.CreateMap<Bike, AddBikeViewModel>();
             provider.CreateMap<AddBikeViewModel, Bike>();
             provider.CreateMap<Bike, GalereyBikeViewModel>();
             provider.CreateMap<GalereyBikeViewModel, Bike>();
 
-            
+
             var mapperConfiguration = new MapperConfiguration(provider);
             var mapper = new Mapper(mapperConfiguration);
 

@@ -1,4 +1,7 @@
-﻿@model BikeViewModel
+﻿@using  WebApplication_Artur.Services
+@inject UserService userService
+
+@model SharedViewModel
 
 <div>
     <div class="pageBikeName-Delete">
@@ -7,11 +10,14 @@
             Модель велосипеда - @Model.Name
         </div>
 
-        <div class="bikeDeket">
-                <a class="linqCollor" href="/Bike/Remove">
+        @if (userService.IsAdminOrOwner(Model.Owner.Id)) 
+        {
+            <div class="bikeDeket">
+                <a class="linqCollor" href="/Bike/Remove?id=@Model.Id">
                     <img src="~/image/Delete2.png" alt="@WebApplication_Artur.Localize.Lang.DeleteUser" class="bikeDel" id="2" />
-                </a> 
-        </div>
+                </a>
+            </div>
+        }
 
     </div>
     <div class="pageBikeContent">

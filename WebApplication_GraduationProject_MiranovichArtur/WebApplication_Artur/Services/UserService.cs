@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using WebApplication_Artur.EfStuff.Model.UserModel;
 using WebApplication_Artur.EfStuff.Repositories;
 
@@ -12,14 +9,12 @@ namespace WebApplication_Artur.Services
     {
 
         private UserRepository _userRepository;
-        private BikeRepository _bikeRepository;
         private IHttpContextAccessor _httpContextAccessor;
 
-        public UserService(UserRepository userRepository, IHttpContextAccessor httpContextAccessor, BikeRepository bikeRepository)
+        public UserService(UserRepository userRepository, IHttpContextAccessor httpContextAccessor)
         {
             _userRepository = userRepository;
             _httpContextAccessor = httpContextAccessor;
-            _bikeRepository = bikeRepository;
         }
 
         public User GetCurrent()
@@ -44,7 +39,15 @@ namespace WebApplication_Artur.Services
         
         public bool IsAdmin() => GetCurrent()?.Role == Role.Admin;
 
-        public bool IsOvner(long id) => GetCurrent()?.Id == _bikeRepository.Get(id).Owner.Id;
+        public bool IsAdmin(long id) => _userRepository.Get(id)?.Role == Role.Admin;
+
+        public bool IsOwner(long id) => (bool)(GetCurrent()?.MyBikes.Any(x => x.Id == id));
+
+        public bool IsMy(long id) => GetCurrent()?.Id == id;
+
+        public bool IsDontAnminMyUser(long id) => !IsAdmin(id) && (IsAdmin() || IsMy(id));
+
+        public bool IsAdminOrOwner(long id) => IsOwner(id) || IsAdmin();
 
     }
 }

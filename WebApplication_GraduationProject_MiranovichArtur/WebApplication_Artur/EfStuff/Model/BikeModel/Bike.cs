@@ -19,9 +19,9 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 
         public virtual User Owner { get; set; }
 
-        public virtual List<User> PotentialBuyer { get; set; }
-
         public virtual Shared Shared { get; set; }
+
+        public virtual List<User> PotentialBuyer { get; set; }
         
         public virtual List<Comment> Comments { get; set; }
     }

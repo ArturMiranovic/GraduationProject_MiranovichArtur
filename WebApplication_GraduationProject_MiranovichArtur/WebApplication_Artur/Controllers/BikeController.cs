@@ -74,7 +74,7 @@ namespace WebApplication_Artur.Controllers
 
             var bike = _bikeRepository.Get(idBike);
 
-            var viewmodel = _mapper.Map<BikeViewModel>(bike);
+            var viewmodel = _mapper.Map<SharedViewModel>(bike);
 
             return View(viewmodel);
         }

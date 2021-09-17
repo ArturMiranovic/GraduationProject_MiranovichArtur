@@ -112,6 +112,7 @@ namespace WebApplication_Artur.Controllers
             return View(viewModels);
         }
 
+
         public IActionResult Remove(long id)
         {
 

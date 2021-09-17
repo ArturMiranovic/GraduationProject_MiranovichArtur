@@ -94,3 +94,10 @@
     box-shadow: 1px 1px 0px 0px #0a0f174d;
     border-radius: 50px;
 }
+
+.pageBikeName-Delete {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
