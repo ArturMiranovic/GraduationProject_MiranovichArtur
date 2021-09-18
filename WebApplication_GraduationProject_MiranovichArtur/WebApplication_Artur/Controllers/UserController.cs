@@ -29,7 +29,7 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Login()
         {
             var returnUrl = Request.Query["ReturnUrl"].FirstOrDefault();
-            var viewModel = new RegistrationViewModel()
+            var viewModel = new UserRegistrationViewModel()
             {
 
                 Name = "User",
@@ -99,7 +99,7 @@ namespace WebApplication_Artur.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registration(RegistrationViewModel viewmodel)
+        public IActionResult Registration(UserRegistrationViewModel viewmodel)
         {
             if (!ModelState.IsValid)
             {

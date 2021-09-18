@@ -87,7 +87,7 @@ namespace WebApplication_Artur
             var provider = new MapperConfigurationExpression();
 
             provider.CreateMap<User, UserViewModel>();
-            provider.CreateMap<RegistrationViewModel, User>();
+            provider.CreateMap<UserRegistrationViewModel, User>();
             provider.CreateMap<Bike, SparesViewModel>();
             provider.CreateMap<SparesViewModel, Bike>();
             provider.CreateMap<Bike, AddBikeViewModel>();

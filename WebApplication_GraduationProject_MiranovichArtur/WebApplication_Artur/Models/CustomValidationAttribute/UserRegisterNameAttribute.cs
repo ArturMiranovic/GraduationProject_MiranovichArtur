@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication_Artur.Models.CustomValidationAttribute
 {
-    public class RegisteNameAttribute : ValidationAttribute
+    public class UserRegisterNameAttribute : ValidationAttribute
     {
         public override string FormatErrorMessage(string name)
         {
@@ -15,9 +15,21 @@ namespace WebApplication_Artur.Models.CustomValidationAttribute
                 : ErrorMessage;
         }
 
+        public override bool IsValid(object value)
+        {
+
+            var res = false;
+
+            if (!(value is string))
+            {
+                throw new FormatException("Неверный формат данных");
+            }
+
+
+            return char.IsUpper(Convert.ToString(value)[0]);
+        }
 
 
     }
-
 }
 

@@ -7,9 +7,10 @@ using WebApplication_Artur.Models.CustomValidationAttribute;
 
 namespace WebApplication_Artur.Models
 {
-    public class RegistrationViewModel
+    public class UserRegistrationViewModel
     {
         [Required(ErrorMessage = "Недопустимая длина имени (минимум 2 символа)")]
+        [UserRegisterName]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "Недопустимая длина имени (минимум 2 символа)")]
         public string Name { get; set; }
 
