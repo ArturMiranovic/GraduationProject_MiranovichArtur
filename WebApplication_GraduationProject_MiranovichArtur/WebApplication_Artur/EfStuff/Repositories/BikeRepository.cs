@@ -20,12 +20,6 @@ namespace WebApplication_Artur.EfStuff.Repositories
                 .SingleOrDefault(x => x.Name == name);
         }
 
-        //public Bike Get(long id)
-        //{
-        //    return _dbSet
-        //        .SingleOrDefault(x => x.Id == id);
-        //}
-
         public void RemoveBike(long id)
         {
             var bike = Get(id);

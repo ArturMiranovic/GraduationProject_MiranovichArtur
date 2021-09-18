@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication_Artur.EfStuff.Model;
+using WebApplication_Artur.EfStuff.Model.BikeModel;
 
 namespace WebApplication_Artur.EfStuff.Repositories
 {
@@ -55,5 +56,14 @@ namespace WebApplication_Artur.EfStuff.Repositories
             _shopDbContext.SaveChanges();
         }
 
+        public bool Exist(long id)
+        {
+            return _dbSet.Any(x => x.Id == id);
+        }
+
+        public bool Exist(string name)
+        {
+            return _dbSet.Any(x => (x.Name == name));
+        }
     }
 }

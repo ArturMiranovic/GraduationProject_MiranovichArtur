@@ -14,6 +14,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="3.2.12" />
     <PackageReference Include="System.Linq" Version="4.3.0" />
   </ItemGroup>
@@ -34,6 +35,10 @@
     <EmbeddedResource Update="Localize\Lang.Ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\image\User\" />
   </ItemGroup>
 
 </Project>

@@ -7,5 +7,7 @@ namespace WebApplication_Artur.Services
 {
     public class BikeService
     {
+
+
     }
 }

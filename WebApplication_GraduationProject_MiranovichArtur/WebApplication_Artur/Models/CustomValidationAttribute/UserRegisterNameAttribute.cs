@@ -11,25 +11,20 @@ namespace WebApplication_Artur.Models.CustomValidationAttribute
         public override string FormatErrorMessage(string name)
         {
             return string.IsNullOrEmpty(ErrorMessage)
-                ? $"Значение {name} некорректно"
+                ? $"{name} некорректно"
                 : ErrorMessage;
         }
 
         public override bool IsValid(object value)
         {
 
-            var res = false;
-
             if (!(value is string))
             {
                 throw new FormatException("Неверный формат данных");
             }
 
-
             return char.IsUpper(Convert.ToString(value)[0]);
         }
-
-
     }
 }
 

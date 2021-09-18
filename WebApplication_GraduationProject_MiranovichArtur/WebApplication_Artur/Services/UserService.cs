@@ -48,7 +48,5 @@ namespace WebApplication_Artur.Services
         public bool IsDontAnminMyUser(long id) => !IsAdmin(id) && (IsAdmin() || IsMy(id));
 
         public bool IsAdminOrOwner(long id) => IsOwner(id) || IsAdmin();
-
-
     }
 }

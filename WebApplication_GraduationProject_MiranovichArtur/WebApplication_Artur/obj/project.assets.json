@@ -7633,6 +7633,7 @@
       "Microsoft.EntityFrameworkCore.Proxies >= 5.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.9",
+      "Microsoft.Extensions.DependencyInjection >= 5.0.2",
       "Microsoft.jQuery.Unobtrusive.Validation >= 3.2.12",
       "System.Linq >= 4.3.0"
     ]
@@ -7705,6 +7706,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[5.0.9, )"
+          },
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[5.0.2, )"
           },
           "Microsoft.jQuery.Unobtrusive.Validation": {
             "target": "Package",

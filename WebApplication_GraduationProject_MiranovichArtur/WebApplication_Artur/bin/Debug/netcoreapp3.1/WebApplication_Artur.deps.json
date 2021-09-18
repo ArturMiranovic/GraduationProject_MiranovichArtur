@@ -37,6 +37,7 @@
           "Microsoft.EntityFrameworkCore.Proxies": "5.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.9",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.9",
+          "Microsoft.Extensions.DependencyInjection": "5.0.2",
           "Microsoft.jQuery.Unobtrusive.Validation": "3.2.12",
           "System.Linq": "4.3.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
