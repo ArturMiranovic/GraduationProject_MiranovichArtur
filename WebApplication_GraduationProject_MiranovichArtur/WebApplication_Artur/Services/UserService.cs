@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 using WebApplication_Artur.EfStuff.Model.UserModel;
 using WebApplication_Artur.EfStuff.Repositories;
 
@@ -49,23 +50,22 @@ namespace WebApplication_Artur.Services
 
             var path = Path.Combine(projectPath, "file\\", user.Name + ".txt");
 
-            var sw = new StreamWriter("C:\\Test.txt");
-
             var nomer = 1;
 
-            using (var filestream = new FileStream(path, FileMode.Create))
-            {
+            var dataTime = DateTime.Now;
 
-                sw.WriteLine($"У пользователя {user.Name} [{user.Login}] { user.MyBikes.Count()} велосипедов:");
-                sw.WriteLine();
+                var appendText = $"          У пользователя {user.Name} [{user.Login}] { user.MyBikes.Count()} велосипедов:\n\n\n";
 
                 foreach (var bike in user.MyBikes)
                 {
-                    sw.WriteLine($"    {nomer++}. Модель велосипеда: {bike.Name} - является {bike.BikeClass} велосипедом.\n" +
-                        $" \b что-то с б ");
 
-                }
-            }
+                    appendText += $"    {nomer++}. Модель велосипеда: {bike.Name} - является {bike.BikeClass} велосипедом.\n" +
+                        $"                         Цена данной модели составляет - {bike.Price} BYN. {dataTime} \n" +
+                        $" ========================================================================================================\n\n\n";
+                };
+                
+
+                File.AppendAllText(path, appendText, Encoding.UTF8);
         }
 
         public bool IsAdmin() => GetCurrent()?.Role == Role.Admin;

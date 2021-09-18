@@ -129,12 +129,12 @@ namespace WebApplication_Artur.Controllers
             return View(viewModels);
         }
 
-        [HttpPost]
-        public IActionResult All(long id)
+
+        public IActionResult DowlondBike(long id)
         {
             _userService.AllBikeUser(id);
 
-            return View();
+            return RedirectToActionPermanent("All");
         }
 
 
