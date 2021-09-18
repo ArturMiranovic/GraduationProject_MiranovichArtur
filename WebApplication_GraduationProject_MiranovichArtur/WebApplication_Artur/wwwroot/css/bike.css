@@ -9,7 +9,7 @@
     padding: 8px;
     margin: 10px;
     box-shadow: 5px 4px 6px 0px #25448233;
-    height: 80%;
+    height: 85%;
     border-radius: 8px;
 }
 
@@ -24,8 +24,8 @@
 }
 
 .invisibleFrame {
-    /*    min-width: 150px;
-    max-width: 300px;*/
+    /*    min-width: 150px;*/
+    max-width: 300px;
     width: 200px;
 }
 
@@ -49,7 +49,7 @@
 
 .logoBikeGalerey {
     max-height: 140px;
-    max-width: 100px;
+    max-width: 140px;
     box-shadow: 3px 4px 4px 0px #0a0f174d;
     border-radius: 8px;
 }

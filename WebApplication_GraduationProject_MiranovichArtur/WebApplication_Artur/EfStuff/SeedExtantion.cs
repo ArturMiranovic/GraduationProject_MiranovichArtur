@@ -41,7 +41,7 @@ namespace WebApplication_Artur.EfStuff
                     Name= "Haibike Big Curve 9.10 (2016)",
                     BikeClass = BikeClass.Mountain,
                     Price = 850,
-                    Page = "/image/bike/Haibike Big Curve 9.10 (2016).png",
+                    Page = "/image/defolt/Haibike Big Curve 9.10 (2016).png",
                 },
                 new Bike()
                 {
@@ -49,7 +49,7 @@ namespace WebApplication_Artur.EfStuff
                     Name= "Haibike Edition 7.40 (2016)",
                     BikeClass = BikeClass.Mountain,
                     Price = 2500,
-                    Page = "/image/bike/Haibike Edition 7.40 (2016).png",
+                    Page = "/image/defolt/Haibike Edition 7.40 (2016).png",
                 },
                 new Bike()
                 {
@@ -57,7 +57,7 @@ namespace WebApplication_Artur.EfStuff
                     Name= "Corratec CCT Team Race",
                     BikeClass = BikeClass.Road,
                     Price = 5130,
-                    Page = "/image/bike/Corratec CCT Team Race.png",
+                    Page = "/image/defolt/Corratec CCT Team Race.png",
                 },
                 new Bike()
                 {
@@ -65,7 +65,7 @@ namespace WebApplication_Artur.EfStuff
                     Name= "Aist 28-130",
                     BikeClass = BikeClass.Touring,
                     Price = 299,
-                    Page = "/image/bike/Aist 28-130.png",
+                    Page = "/image/defolt/Aist 28-130.png",
                 },
             };
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace WebApplication_Artur.Models
         public long Price { get; set; }
 
         public BikeClass BikeClass { get; set; }
+
+        public IFormFile BikePage { get; set; }
 
     }
 }

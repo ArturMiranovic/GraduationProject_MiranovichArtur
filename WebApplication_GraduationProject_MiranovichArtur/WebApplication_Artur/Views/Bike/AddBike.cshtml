@@ -3,7 +3,7 @@
 @model AddBikeViewModel
 
 
-<form action="/Bike/AddBike" method="post">
+<form action="/Bike/AddBike" method="post" enctype="multipart/form-data">
     <div>
 
         <div>
@@ -25,6 +25,15 @@
         <div>
             @Html.TextBoxFor(x => x.Price)
             @Html.ValidationMessageFor(x => x.Price)
+        </div>
+
+    </div>
+
+    <div>
+
+        Фото велосипеда:
+        <div>
+            <input type="file" name="BikePage" />
         </div>
 
     </div>

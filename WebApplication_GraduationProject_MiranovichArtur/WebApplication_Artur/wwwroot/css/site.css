@@ -14,7 +14,7 @@
 
 .menu {
     height: auto;
-    min-width: 100px;
+    min-width: 150px;
     max-width: 200px;
     background: #d1e6f1;
     border: 3px;
@@ -43,7 +43,7 @@
     /* left: 0; */
     /* bottom: 0; */
     padding: 11px;
-    background: #39b54a;
+    background: #627a8ca1;
     color: #fff;
     /* width: 100%;*/
 }
