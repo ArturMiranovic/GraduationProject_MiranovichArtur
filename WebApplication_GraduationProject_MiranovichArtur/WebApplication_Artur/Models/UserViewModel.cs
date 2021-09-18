@@ -16,5 +16,7 @@ namespace WebApplication_Artur.Models
 
         public string Awatar { get; set; }
 
+        public  List<BikeViewModel> MyBikes { get; set; }
+
     }
 }

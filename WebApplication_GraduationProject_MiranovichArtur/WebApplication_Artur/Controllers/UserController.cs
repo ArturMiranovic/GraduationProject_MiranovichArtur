@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using System.Threading;
+using WebApplication_Artur.Services;
 
 namespace WebApplication_Artur.Controllers
 {
@@ -17,12 +18,14 @@ namespace WebApplication_Artur.Controllers
     {
 
         private IMapper _mapper;
+        public UserService _userService;
         private UserRepository _userRepository;
 
-        public UserController(IMapper mapper, UserRepository userRepository)
+        public UserController(IMapper mapper, UserRepository userRepository, UserService userService)
         {
             _mapper = mapper;
             _userRepository = userRepository;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -115,6 +118,7 @@ namespace WebApplication_Artur.Controllers
             return RedirectToActionPermanent("Index", "Home");
         }
 
+        [HttpGet]
         public IActionResult All()
         {
 
@@ -123,6 +127,14 @@ namespace WebApplication_Artur.Controllers
             var viewModels = _mapper.Map<List<UserViewModel>>(allUser);
 
             return View(viewModels);
+        }
+
+        [HttpPost]
+        public IActionResult All(long id)
+        {
+            _userService.AllBikeUser(id);
+
+            return View();
         }
 
 
@@ -142,7 +154,7 @@ namespace WebApplication_Artur.Controllers
             return RedirectToActionPermanent("Logout");
         }
 
-        public IActionResult IsUniqLogin(string login) => Json(!_userRepository.Exist(login) && login.Count()>1);
+        public IActionResult IsUniqLogin(string login) => Json(!_userRepository.ExistLogin(login) && login.Count() > 1);
 
         public IActionResult IsUniqPassword(string password) => Json(password?.LongCount() > 3);
 

@@ -12,7 +12,7 @@ namespace WebApplication_Artur.EfStuff
 {
     public static class SeedExtantion
     {
-        public const string ArturLogin = "artur@gmail.com";
+        public const string ArturLogin = "artur";
 
         public static IHost Seed(this IHost host)
         {
@@ -71,7 +71,7 @@ namespace WebApplication_Artur.EfStuff
 
             foreach (var bike in bikeDefolts)
             {
-                if (!bikeRepository.Exist(bike.Name))
+                if (!bikeRepository.ExistName(bike.Name))
                 {
                     bike.Owner = artur;
 
@@ -102,7 +102,7 @@ namespace WebApplication_Artur.EfStuff
                 new User()
                 {
                     Name = "Mischa",
-                    Login = "mischa@mail.ru",
+                    Login = "mischa",
                     Password = "2222",
                     Role = Role.User,
                 },
@@ -111,7 +111,7 @@ namespace WebApplication_Artur.EfStuff
             foreach (var user in userDefolts)
             {
 
-                if (!userRepository.Exist(user.Login))
+                if (!userRepository.ExistLogin(user.Login))
                 {
                     userRepository.Save(user);
                 }

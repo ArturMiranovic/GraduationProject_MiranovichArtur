@@ -20,14 +20,33 @@
 
             </div>
 
+            <div class="widthDownload">
+
+                @if (user.MyBikes.Count() > 0)
+                {
+                    <a class="linqCollor" href="/Bike/PageBike?idBike=@user.Id">
+
+                        <img src="/image/defolt/imputDownload.png" alt="Alternate Text" class="download" />
+
+                    </a>
+                }
+                else
+                {
+                    <div>
+                        Нет активных предложений
+                    </div>     
+                }
+
+            </div>
+
             <div class="muwInputDelet">
 
-                    @if (userService.IsDontAnminMyUser(user.Id))
-                    {
-                        <a href="/User/RemoveMy?id=@user.Id" class="imputDelet">
-                            <img src="~/image/Delete2.png" alt="@WebApplication_Artur.Localize.Lang.DeleteUser" class="logoUsersDel" id="1" />
-                        </a>
-                    }
+                @if (userService.IsDontAnminMyUser(user.Id))
+                {
+                    <a href="/User/RemoveMy?id=@user.Id" class="imputDelet">
+                        <img src="~/image/defolt/Delete2.png" alt="@WebApplication_Artur.Localize.Lang.DeleteUser" class="logoUsersDel" id="1" />
+                    </a>
+                }
 
             </div>
 

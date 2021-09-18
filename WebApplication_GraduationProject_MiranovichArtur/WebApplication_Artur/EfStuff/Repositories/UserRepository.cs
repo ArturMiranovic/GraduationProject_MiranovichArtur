@@ -27,11 +27,6 @@ namespace WebApplication_Artur.EfStuff.Repositories
                 .SingleOrDefault(x => x.Login == login);
         }
 
-        public bool Exist(string login)
-        {
-            return _dbSet.Any(x => x.Login == login);
-        }
-
         public void RemoveUser(long id)
         {
             var user = Get(id);

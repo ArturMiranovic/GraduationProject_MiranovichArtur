@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.IO;
 using System.Linq;
 using WebApplication_Artur.EfStuff.Model.UserModel;
 using WebApplication_Artur.EfStuff.Repositories;
@@ -9,12 +12,14 @@ namespace WebApplication_Artur.Services
     {
 
         private UserRepository _userRepository;
+        private IWebHostEnvironment _webHostEnvironment;
         private IHttpContextAccessor _httpContextAccessor;
 
-        public UserService(UserRepository userRepository, IHttpContextAccessor httpContextAccessor)
+        public UserService(UserRepository userRepository, IHttpContextAccessor httpContextAccessor, IWebHostEnvironment webHostEnvironment)
         {
             _userRepository = userRepository;
             _httpContextAccessor = httpContextAccessor;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public User GetCurrent()
@@ -36,7 +41,33 @@ namespace WebApplication_Artur.Services
 
         }
 
-        
+        public void AllBikeUser(long id)
+        {
+            var user = _userRepository.Get(id);
+
+            var projectPath = _webHostEnvironment.WebRootPath;
+
+            var path = Path.Combine(projectPath, "file\\", user.Name + ".txt");
+
+            var sw = new StreamWriter("C:\\Test.txt");
+
+            var nomer = 1;
+
+            using (var filestream = new FileStream(path, FileMode.Create))
+            {
+
+                sw.WriteLine($"У пользователя {user.Name} [{user.Login}] { user.MyBikes.Count()} велосипедов:");
+                sw.WriteLine();
+
+                foreach (var bike in user.MyBikes)
+                {
+                    sw.WriteLine($"    {nomer++}. Модель велосипеда: {bike.Name} - является {bike.BikeClass} велосипедом.\n" +
+                        $" \b что-то с б ");
+
+                }
+            }
+        }
+
         public bool IsAdmin() => GetCurrent()?.Role == Role.Admin;
 
         public bool IsAdmin(long id) => _userRepository.Get(id)?.Role == Role.Admin;

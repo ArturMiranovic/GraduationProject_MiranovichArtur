@@ -25,8 +25,8 @@ namespace WebApplication_Artur.EfStuff
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().Property(u => u.Awatar).HasDefaultValue("/image/DefaultAvatar_V2.png");
-            modelBuilder.Entity<Bike>().Property(u => u.Page).HasDefaultValue("/image/defaultBike1.png");
+            modelBuilder.Entity<User>().Property(u => u.Awatar).HasDefaultValue("/image/defolt/DefaultAvatar_V2.png");
+            modelBuilder.Entity<Bike>().Property(u => u.Page).HasDefaultValue("/image/defolt/defaultBike1.png");
 
             modelBuilder.Entity<User>()
                 .HasMany(x => x.MyBikes)
