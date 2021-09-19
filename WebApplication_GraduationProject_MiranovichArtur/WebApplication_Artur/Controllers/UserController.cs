@@ -134,7 +134,7 @@ namespace WebApplication_Artur.Controllers
         {
             _userService.AllBikeUser(id);
 
-            return RedirectToActionPermanent("All");
+            return RedirectToActionPermanent("All", "User");
         }
 
 
@@ -143,7 +143,7 @@ namespace WebApplication_Artur.Controllers
 
             _userRepository.RemoveUser(id);
 
-            return RedirectToActionPermanent("All");
+            return RedirectToActionPermanent("All", "User");
         }
 
         public IActionResult RemoveMy(long id)
@@ -155,10 +155,10 @@ namespace WebApplication_Artur.Controllers
 
             if (userRole == Role.Admin) 
             {
-                return RedirectToActionPermanent("All");
+                return RedirectToActionPermanent("All", "User");
             }
 
-            return RedirectToActionPermanent("Logout");
+            return RedirectToActionPermanent("Logout", "User");
         }
 
         public IActionResult IsUniqLogin(string login) => Json(!_userRepository.ExistLogin(login) && login.Count() > 1);

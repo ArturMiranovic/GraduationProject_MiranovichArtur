@@ -39,18 +39,20 @@ namespace WebApplication_Artur.EfStuff.Repositories
         {
             var user = Get(id);
 
-            var userBikes = _bikeRepository.GetAll()
-                .Select(x => x.Owner = user);
-
-            foreach (var bike in userBikes)
+            if (user.MyBikes.Count() > 0)
             {
-                _bikeRepository.RemoveBike(bike.Id);
+                var userBikes = _bikeRepository.GetAll()
+                   .Select(x => x.Owner = user);
+
+                foreach (var bike in userBikes)
+                {
+                    _bikeRepository.RemoveBike(bike.Id);
+                }
+
+                _shopDbContext.Entry(user)
+                    .Collection(m => m.MyBikes)
+                    .Load();
             }
-
-            _shopDbContext.Entry(user)
-                .Collection(m => m.MyBikes)
-                .Load();
-
 
             _shopDbContext.Entry(user)
                 .Collection(l => l.LikeBikes)
