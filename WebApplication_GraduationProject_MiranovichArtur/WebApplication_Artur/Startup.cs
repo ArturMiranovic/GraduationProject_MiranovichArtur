@@ -95,14 +95,17 @@ namespace WebApplication_Artur
             provider.CreateMap<Bike, BikeViewModel>();
             provider.CreateMap<BikeViewModel, Bike>();
 
-            provider.CreateMap<Bike, SparesViewModel>();
-            provider.CreateMap<SparesViewModel, Bike>();
+            provider.CreateMap<Bike, SharedViewModel>();
+            provider.CreateMap<SharedViewModel, Bike>();
 
             provider.CreateMap<Bike, AddBikeViewModel>();
             provider.CreateMap<AddBikeViewModel, Bike>();
 
             provider.CreateMap<Bike, GalereyBikeViewModel>();
             provider.CreateMap<GalereyBikeViewModel, Bike>();
+
+            provider.CreateMap<Shared, AddSharedBikeViewModel>();
+            provider.CreateMap<AddSharedBikeViewModel, Shared>();
 
 
             var mapperConfiguration = new MapperConfiguration(provider);

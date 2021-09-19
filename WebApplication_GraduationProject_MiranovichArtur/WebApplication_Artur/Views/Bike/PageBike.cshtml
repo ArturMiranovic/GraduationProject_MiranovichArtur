@@ -1,7 +1,7 @@
 ﻿@using  WebApplication_Artur.Services
 @inject UserService userService
 
-@model SparesViewModel
+@model SharedViewModel
 
 <div>
     <div class="pageBikeName-Delete">
@@ -39,7 +39,7 @@
 
             <div>
                 <div class="bikeLing">
-                    <a class="linqCollor" href="/Spared/AddBrake">редактироваь ттх</a>
+                    <a class="linqCollor" href="/SharedBike/Add?BikeId=@Model.Id">редактироваь ттх</a>
                 </div>
             </div>
 

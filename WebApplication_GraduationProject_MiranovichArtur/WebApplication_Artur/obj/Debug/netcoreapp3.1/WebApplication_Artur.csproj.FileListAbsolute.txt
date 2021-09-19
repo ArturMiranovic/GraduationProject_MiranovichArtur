@@ -95,4 +95,4 @@ D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplica
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\WebApplication_Artur.pdb
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\WebApplication_Artur.genruntimeconfig.cache
 D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\WebApplication_Artur.csproj.AssemblyReference.cache
-D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\Razor\Views\Spares\AddBrake.cshtml.g.cs
+D:\GraduationProject\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\Razor\Views\SharedBike\Add.cshtml.g.cs

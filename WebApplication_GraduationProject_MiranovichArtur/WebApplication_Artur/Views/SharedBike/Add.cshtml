@@ -1,0 +1,32 @@
+﻿@model AddSharedBikeViewModel
+
+<form action="/SharedBike/Add?" method="post">
+
+    <div>
+
+
+
+        <div class="addOneShared">
+            @Html.TextBoxFor(x => x.Size) - укажите размер рамы.
+        </div>
+
+
+        <div class="addOneShared">
+            @Html.TextBoxFor(x => x.RearChainrings) - укажите количество задних звёзд.
+        </div>
+
+        <div class="addOneShared">
+            @Html.TextBoxFor(x => x.FrontChainrings) - укажите количество передних звёзд.
+        </div>
+
+        <div class="addOneShared">
+            @Html.TextBoxFor(x => x.BrakeDiametr) - укажите диаметр тормозов.
+        </div>
+
+    </div>
+
+    <div class="inutRegistration">
+        <input type="submit" value="применить" />
+    </div>
+
+</form>

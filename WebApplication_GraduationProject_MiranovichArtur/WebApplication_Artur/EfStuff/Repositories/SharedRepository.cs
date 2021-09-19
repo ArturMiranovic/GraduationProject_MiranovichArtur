@@ -12,6 +12,9 @@ namespace WebApplication_Artur.EfStuff.Repositories
         public SharedRepository(ShopDbContext dbContext) : base(dbContext)
         {
 
+
+
+
         }
 
 

@@ -9,7 +9,7 @@ using WebApplication_Artur.EfStuff.Repositories;
 
 namespace WebApplication_Artur.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
 
         private UserRepository _userRepository;
@@ -54,18 +54,18 @@ namespace WebApplication_Artur.Services
 
             var dataTime = DateTime.Now;
 
-                var appendText = $"          У пользователя {user.Name} [{user.Login}] { user.MyBikes.Count()} велосипедов:\n\n\n";
+            var appendText = $"          У пользователя {user.Name} [{user.Login}] { user.MyBikes.Count()} велосипедов:\n\n\n";
 
-                foreach (var bike in user.MyBikes)
-                {
+            foreach (var bike in user.MyBikes)
+            {
 
-                    appendText += $"    {nomer++}. Модель велосипеда: {bike.Name} - является {bike.BikeClass} велосипедом.\n" +
-                        $"                         Цена данной модели составляет - {bike.Price} BYN. {dataTime} \n" +
-                        $" ========================================================================================================\n\n\n";
-                };
-                
+                appendText += $"    {nomer++}. Модель велосипеда: {bike.Name} - является {bike.BikeClass} велосипедом.\n" +
+                    $"                         Цена данной модели составляет - {bike.Price} BYN. {dataTime} \n" +
+                    $" ========================================================================================================\n\n\n";
+            };
 
-                File.AppendAllText(path, appendText, Encoding.UTF8);
+
+            File.AppendAllText(path, appendText, Encoding.UTF8);
         }
 
         public bool IsAdmin() => GetCurrent()?.Role == Role.Admin;
