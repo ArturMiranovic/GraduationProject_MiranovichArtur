@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication_Artur.EfStuff.Model.BikeModel;
+using WebApplication_Artur.EfStuff.Model.Interface;
 
 namespace WebApplication_Artur.EfStuff.Model.UserModel
 {
-    public class User : BaseModel
+    public class User : BaseModel, IUser
     {
 
         public string Login { get; set; }
