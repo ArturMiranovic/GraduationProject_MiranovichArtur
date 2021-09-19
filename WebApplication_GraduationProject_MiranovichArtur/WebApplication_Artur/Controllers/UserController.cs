@@ -149,7 +149,14 @@ namespace WebApplication_Artur.Controllers
         public IActionResult RemoveMy(long id)
         {
 
+            var userRole = _userService.GetCurrent().Role;
+
             _userRepository.RemoveUser(id);
+
+            if (userRole == Role.Admin) 
+            {
+                return RedirectToActionPermanent("All");
+            }
 
             return RedirectToActionPermanent("Logout");
         }

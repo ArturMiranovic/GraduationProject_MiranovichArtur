@@ -25,8 +25,12 @@ namespace WebApplication_Artur.EfStuff.Repositories
             var bike = Get(id);
 
             _shopDbContext.Entry(bike)
-                .Collection(l => l.Comments)
+                .Collection(c => c.Comments)
                 .Load();                            //Удаление всех связанных элементов с байком!!!
+
+            _shopDbContext.Entry(bike)
+                .Collection(l => l.PotentialBuyer)
+                .Load();
 
             _dbSet.Remove(bike);
             _shopDbContext.SaveChanges();

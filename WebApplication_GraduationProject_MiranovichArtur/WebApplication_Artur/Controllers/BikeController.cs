@@ -47,7 +47,6 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Remove(long id)
         {
 
-
             _bikeRepository.Remove(id);
 
             return RedirectToActionPermanent("All");
@@ -68,19 +67,20 @@ namespace WebApplication_Artur.Controllers
         {
             var user = _userServices.GetCurrent().Name;
 
-            var projectPath = _webHostEnvironment.WebRootPath;
-            var path = Path.Combine(projectPath, "image\\bike\\", user+ "_" + viewmodel.BikePage.Name + ".png");
-
-            using (var filestream = new FileStream(path, FileMode.Create))
-            {
-                viewmodel.BikePage.CopyTo(filestream);
-            }
-
             var bike = _mapper.Map<Bike>(viewmodel);
+
+           
 
             if (viewmodel.BikePage != null)
             {
-                bike.Page = $"/image/bike/{user}_{viewmodel.BikePage.Name}.png";
+                var projectPath = _webHostEnvironment.WebRootPath;
+                var path = Path.Combine(projectPath, "image\\bike\\", user + "_" + viewmodel.Name + ".png");
+
+                using (var filestream = new FileStream(path, FileMode.Create))
+                {
+                    viewmodel.BikePage.CopyTo(filestream);
+                }
+                bike.Page = $"/image/bike/{user}_{viewmodel.Name}.png";
             }
 
             bike.Owner = _userServices.GetCurrent();

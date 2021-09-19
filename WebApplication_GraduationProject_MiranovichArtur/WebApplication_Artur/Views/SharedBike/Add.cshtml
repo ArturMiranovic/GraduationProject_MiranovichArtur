@@ -2,31 +2,76 @@
 
 <form action="/SharedBike/Add?" method="post">
 
-    <div>
+    <style type="text/css">
+        .pooof {
+            display: none;
+        }
+
+        .addOneSharedBike {
+            padding: 10px;
+        }
+
+        .addBlock {
+            margin: 30px;
+            background: #d1e6f1;
+            display: block;
+            width: fit-content;
+            justify-content: center;
+            align-content: flex-start;
+            flex-wrap: nowrap;
+            border-radius: 8px;
+            box-shadow: 5px 4px 6px 0px #25448233;
+        }
+
+        .inputaddBlock {
+            background-color: #eff3f8;
+            font-family: cursive;
+            color: #86b7e1;
+            width: 100%;
+            border-radius: 4px;
+        }
 
 
 
-        <div class="addOneShared">
-            @Html.TextBoxFor(x => x.Size) - укажите размер рамы.
+        .inputaddBlock:hover {
+            background-color: #86b7e1;
+            color: #eff3f8;
+        }
+
+
+    </style>
+
+    <div class="addBlock">
+
+        <input class="pooof" name="BikeId" value=@Model.BikeId />
+
+
+        <div class="addOneSharedBike">
+            @Html.EditorFor(x => x.Size)  - укажите рвзмер рамы.
         </div>
 
-
-        <div class="addOneShared">
-            @Html.TextBoxFor(x => x.RearChainrings) - укажите количество задних звёзд.
+        <div class="addOneSharedBike">
+            @Html.EditorFor(x => x.RearChainrings)  - укажите количество задних звёзд.
         </div>
 
-        <div class="addOneShared">
-            @Html.TextBoxFor(x => x.FrontChainrings) - укажите количество передних звёзд.
+        <div class="addOneSharedBike">
+            @Html.EditorFor(x => x.FrontChainrings)  - укажите количество передних звёзд.
         </div>
 
-        <div class="addOneShared">
-            @Html.TextBoxFor(x => x.BrakeDiametr) - укажите диаметр тормозов.
+        <div class="addOneSharedBike">
+            @Html.EditorFor(x => x.WheelDiametr)  - укажите диаметр колёс.
+        </div>
+
+        <div class="addOneSharedBike">
+            @Html.EditorFor(x => x.WheelDiametr)  - укажите диаметр тормозов.
+        </div>
+
+        <div class="addOneSharedBike">
+            <input type="submit" value="применить" class="inputaddBlock" />
         </div>
 
     </div>
 
-    <div class="inutRegistration">
-        <input type="submit" value="применить" />
-    </div>
+
 
 </form>

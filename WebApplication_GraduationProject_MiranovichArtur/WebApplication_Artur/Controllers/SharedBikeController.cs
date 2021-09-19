@@ -24,10 +24,10 @@ namespace WebApplication_Artur.Controllers
         private IMapper _mapper;
         private BikeRepository _bikeRepository; 
         private UserService _userServices;
-        private SharedRepository _sharedRepository;
+        private SharedBikeRepository _sharedRepository;
         private IWebHostEnvironment _webHostEnvironment;
 
-        public SharedBikeController(IMapper mapper, BikeRepository bikeRepository, UserService userServices, IWebHostEnvironment webHostEnvironment, SharedRepository sharedRepository)
+        public SharedBikeController(IMapper mapper, BikeRepository bikeRepository, UserService userServices, IWebHostEnvironment webHostEnvironment, SharedBikeRepository sharedRepository)
         {
             _mapper = mapper;
             _bikeRepository = bikeRepository;

@@ -11,15 +11,15 @@ namespace WebApplication_Artur.Models
 
         public long BikeId { get; set; }
 
-        public string Size { get; set; }
+        public long Size { get; set; }
 
-        public string BrakeDiametr { get; set; }
+        public long BrakeDiametr { get; set; }
 
-        public string FrontChainrings { get; set; }
+        public long FrontChainrings { get; set; }
 
-        public string RearChainrings { get; set; }
+        public long RearChainrings { get; set; }
 
-        public string WheelDiametr { get; set; }
+        public long WheelDiametr { get; set; }
 
     }
 }

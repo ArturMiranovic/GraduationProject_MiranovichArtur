@@ -57,6 +57,10 @@ namespace WebApplication_Artur
 
             services.RegisterAssistant<BikeRepository>();
 
+            services.RegisterAssistant<SharedBikeRepository>();
+
+            //services.RegisterAssistant<SharedBikeService>();
+
             //services.AddScoped<UserRepository>(container =>
             //new UserRepository(container.GetService<ShopDbContext>())
             //);

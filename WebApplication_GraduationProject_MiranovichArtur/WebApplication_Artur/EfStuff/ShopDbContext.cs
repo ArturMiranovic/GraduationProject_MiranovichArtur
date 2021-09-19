@@ -21,7 +21,7 @@ namespace WebApplication_Artur.EfStuff
         public DbSet<UserInformation> UserInformation { get; set; }
 
         public DbSet<Bike> Bikes { get; set; }
-        public DbSet<Shared> Switches { get; set; }
+        public DbSet<Shared> Shareds { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,8 @@ namespace WebApplication_Artur.EfStuff
             modelBuilder.Entity<Bike>()
                 .HasMany(x => x.Comments)
                 .WithOne(x => x.Bike);
+
+
 
             base.OnModelCreating(modelBuilder);
         }
