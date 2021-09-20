@@ -65,11 +65,12 @@ namespace WebApplication_Artur.Controllers
         [HttpPost]
         public IActionResult AddBike(AddBikeViewModel viewmodel)
         {
+
+
             var user = _userServices.GetCurrent().Name;
 
             var bike = _mapper.Map<Bike>(viewmodel);
 
-           
 
             if (viewmodel.BikePage != null)
             {

@@ -60,7 +60,7 @@ namespace WebApplication_Artur.Controllers
         {
             var viewMmodel = new AddSharedBikeViewModel()
             {
-                BikeId = id
+                BikeId = id,
             };
 
             return View(viewMmodel);
@@ -70,11 +70,16 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Add(AddSharedBikeViewModel viewMmodel)
         {
 
+
             var sharedBike = _mapper.Map<Shared>(viewMmodel);
-            
+           
+
             var bike = _bikeRepository.Get(viewMmodel.BikeId);
 
-            sharedBike.Bike = bike;
+            sharedBike.Id = bike.Id;
+
+           bike.Shared = sharedBike;
+            //sharedBike.Bike = bike;
 
             bike.BikeSize = viewMmodel.BikeSize;
             bike.BikeClass = viewMmodel.BikeClass;
