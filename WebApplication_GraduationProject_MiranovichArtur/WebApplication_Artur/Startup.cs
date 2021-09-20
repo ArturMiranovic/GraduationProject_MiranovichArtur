@@ -57,10 +57,6 @@ namespace WebApplication_Artur
 
             services.RegisterAssistant<BikeRepository>();
 
-            services.RegisterAssistant<SharedBikeRepository>();
-
-            //services.RegisterAssistant<SharedBikeService>();
-
             //services.AddScoped<UserRepository>(container =>
             //new UserRepository(container.GetService<ShopDbContext>())
             //);
@@ -83,10 +79,10 @@ namespace WebApplication_Artur
 
             services.AddHttpContextAccessor();
 
-            regiaterMapper(services);
+            RegiaterMapper(services);
         }
 
-        private void regiaterMapper(IServiceCollection services)
+        private void RegiaterMapper(IServiceCollection services)
         {
             var provider = new MapperConfigurationExpression();
 
@@ -107,9 +103,6 @@ namespace WebApplication_Artur
 
             provider.CreateMap<Bike, GalereyBikeViewModel>();
             provider.CreateMap<GalereyBikeViewModel, Bike>();
-
-            provider.CreateMap<Shared, AddSharedBikeViewModel>();
-            provider.CreateMap<AddSharedBikeViewModel, Shared>();
 
 
             var mapperConfiguration = new MapperConfiguration(provider);

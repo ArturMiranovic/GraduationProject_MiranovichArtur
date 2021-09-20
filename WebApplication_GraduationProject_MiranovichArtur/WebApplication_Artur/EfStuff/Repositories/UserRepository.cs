@@ -65,9 +65,9 @@ namespace WebApplication_Artur.EfStuff.Repositories
         }
 
 
-        public bool ExistLogin(string login)
-        {
-            return _dbSet.Any(x => (x.Login == login));
-        }
+        //public bool ExistLogin(string login)
+        //{
+        //    return _dbSet.Any(x => (x.Login == login));
+        //}
     }
 }

@@ -40,7 +40,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\image\bike\" />
     <Folder Include="wwwroot\file\" />
-    <Folder Include="wwwroot\image\User\" />
   </ItemGroup>
 
 </Project>
