@@ -10,8 +10,8 @@ using WebApplication_Artur.EfStuff;
 namespace WebApplication_Artur.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20210916000906_Begin")]
-    partial class Begin
+    [Migration("20210920001832_Merg")]
+    partial class Merg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,7 +58,7 @@ namespace WebApplication_Artur.Migrations
                     b.Property<string>("Page")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("/image/defaultBike1.png");
+                        .HasDefaultValue("/image/defolt/defaultBike1.png");
 
                     b.Property<long>("Price")
                         .HasColumnType("bigint");
@@ -70,25 +70,12 @@ namespace WebApplication_Artur.Migrations
                     b.ToTable("Bikes");
                 });
 
-            modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.BikeModel.Brake", b =>
+            modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.BikeModel.Shared", b =>
                 {
                     b.Property<long>("Id")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("Diametr")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Brakes");
-                });
-
-            modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.BikeModel.GearSelector", b =>
-                {
-                    b.Property<long>("Id")
+                    b.Property<long>("BrakeDiametr")
                         .HasColumnType("bigint");
 
                     b.Property<int>("Chainrings")
@@ -97,28 +84,15 @@ namespace WebApplication_Artur.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Rearstars")
+                    b.Property<int>("WheelDiameter")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WheelDiametr")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Switches");
-                });
-
-            modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.BikeModel.Wheel", b =>
-                {
-                    b.Property<long>("Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("Diameter")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Wheels");
+                    b.ToTable("Shareds");
                 });
 
             modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.UserModel.Comment", b =>
@@ -162,7 +136,7 @@ namespace WebApplication_Artur.Migrations
                     b.Property<string>("Awatar")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("/image/DefaultAvatar_V2.png");
+                        .HasDefaultValue("/image/defolt/DefaultAvatar_V2.png");
 
                     b.Property<int>("Lang")
                         .HasColumnType("int");
@@ -238,33 +212,11 @@ namespace WebApplication_Artur.Migrations
                     b.Navigation("Owner");
                 });
 
-            modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.BikeModel.Brake", b =>
+            modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.BikeModel.Shared", b =>
                 {
                     b.HasOne("WebApplication_Artur.EfStuff.Model.BikeModel.Bike", "Bike")
-                        .WithOne("Brake")
-                        .HasForeignKey("WebApplication_Artur.EfStuff.Model.BikeModel.Brake", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Bike");
-                });
-
-            modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.BikeModel.GearSelector", b =>
-                {
-                    b.HasOne("WebApplication_Artur.EfStuff.Model.BikeModel.Bike", "Bike")
-                        .WithOne("GearSelector")
-                        .HasForeignKey("WebApplication_Artur.EfStuff.Model.BikeModel.GearSelector", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Bike");
-                });
-
-            modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.BikeModel.Wheel", b =>
-                {
-                    b.HasOne("WebApplication_Artur.EfStuff.Model.BikeModel.Bike", "Bike")
-                        .WithOne("Wheel")
-                        .HasForeignKey("WebApplication_Artur.EfStuff.Model.BikeModel.Wheel", "Id")
+                        .WithOne("Shared")
+                        .HasForeignKey("WebApplication_Artur.EfStuff.Model.BikeModel.Shared", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -299,13 +251,9 @@ namespace WebApplication_Artur.Migrations
 
             modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.BikeModel.Bike", b =>
                 {
-                    b.Navigation("Brake");
-
                     b.Navigation("Comments");
 
-                    b.Navigation("GearSelector");
-
-                    b.Navigation("Wheel");
+                    b.Navigation("Shared");
                 });
 
             modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.UserModel.User", b =>

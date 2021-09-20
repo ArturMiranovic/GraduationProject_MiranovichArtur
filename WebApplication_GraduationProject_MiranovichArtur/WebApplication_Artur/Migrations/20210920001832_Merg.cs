@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplication_Artur.Migrations
 {
-    public partial class Begin : Migration
+    public partial class Merg : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace WebApplication_Artur.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Login = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Awatar = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "/image/DefaultAvatar_V2.png"),
+                    Awatar = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "/image/defolt/DefaultAvatar_V2.png"),
                     Role = table.Column<int>(type: "int", nullable: false),
                     Lang = table.Column<int>(type: "int", nullable: false),
                     Сurrency = table.Column<int>(type: "int", nullable: false),
@@ -35,7 +35,7 @@ namespace WebApplication_Artur.Migrations
                     Price = table.Column<long>(type: "bigint", nullable: false),
                     BikeSize = table.Column<long>(type: "bigint", nullable: false),
                     BikeClass = table.Column<int>(type: "int", nullable: false),
-                    Page = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "/image/defaultBike1.png"),
+                    Page = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "/image/defolt/defaultBike1.png"),
                     OwnerId = table.Column<long>(type: "bigint", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -97,25 +97,6 @@ namespace WebApplication_Artur.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Brakes",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false),
-                    Diametr = table.Column<long>(type: "bigint", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Brakes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Brakes_Bikes_Id",
-                        column: x => x.Id,
-                        principalTable: "Bikes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Comments",
                 columns: table => new
                 {
@@ -145,38 +126,21 @@ namespace WebApplication_Artur.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Switches",
+                name: "Shareds",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false),
+                    BrakeDiametr = table.Column<long>(type: "bigint", nullable: false),
+                    WheelDiameter = table.Column<int>(type: "int", nullable: false),
                     Chainrings = table.Column<int>(type: "int", nullable: false),
-                    Rearstars = table.Column<int>(type: "int", nullable: false),
+                    WheelDiametr = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Switches", x => x.Id);
+                    table.PrimaryKey("PK_Shareds", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Switches_Bikes_Id",
-                        column: x => x.Id,
-                        principalTable: "Bikes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Wheels",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false),
-                    Diameter = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Wheels", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Wheels_Bikes_Id",
+                        name: "FK_Shareds_Bikes_Id",
                         column: x => x.Id,
                         principalTable: "Bikes",
                         principalColumn: "Id",
@@ -216,19 +180,13 @@ namespace WebApplication_Artur.Migrations
                 name: "BikeUser");
 
             migrationBuilder.DropTable(
-                name: "Brakes");
-
-            migrationBuilder.DropTable(
                 name: "Comments");
 
             migrationBuilder.DropTable(
-                name: "Switches");
+                name: "Shareds");
 
             migrationBuilder.DropTable(
                 name: "UserInformation");
-
-            migrationBuilder.DropTable(
-                name: "Wheels");
 
             migrationBuilder.DropTable(
                 name: "Bikes");

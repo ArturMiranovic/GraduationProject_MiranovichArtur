@@ -64,10 +64,11 @@ namespace WebApplication_Artur.EfStuff.Repositories
             _shopDbContext.SaveChanges();
         }
 
+        public bool ExistLogin(string login)
+        {
+            var a = _dbSet.Any(x => (x.Login == login));
 
-        //public bool ExistLogin(string login)
-        //{
-        //    return _dbSet.Any(x => (x.Login == login));
-        //}
+            return a;
+        }
     }
 }
