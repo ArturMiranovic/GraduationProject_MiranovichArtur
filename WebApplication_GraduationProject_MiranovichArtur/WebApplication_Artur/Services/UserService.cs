@@ -72,7 +72,15 @@ namespace WebApplication_Artur.Services
 
         public bool IsAdmin(long id) => _userRepository.Get(id)?.Role == Role.Admin;
 
-        public bool IsOwner(long id) => GetCurrent()?.MyBikes.Any(x => x.Id == id) != null;    
+        public bool IsOwner(long id) => GetCurrent()?.MyBikes.Any(x => x.Id == id) == true;
+        //{
+
+        //    var a = GetCurrent()?.MyBikes.Any(x => x.Id == id) == true;
+ 
+        //    return a;
+        //}
+
+        //=> GetCurrent()?.MyBikes.Any(x => x.Id == id) != null;    
 
         public bool IsMy(long id) => GetCurrent()?.Id == id;
 

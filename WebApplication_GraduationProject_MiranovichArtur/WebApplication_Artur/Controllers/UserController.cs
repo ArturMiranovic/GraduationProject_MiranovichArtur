@@ -161,6 +161,15 @@ namespace WebApplication_Artur.Controllers
             return RedirectToActionPermanent("Logout", "User");
         }
 
+
+        public IActionResult Rasrabotka()
+        {
+
+            return View();
+        }
+
+
+
         public IActionResult IsUniqLogin(string login) => Json(!_userRepository.ExistLogin(login) && login.Count() > 1);
 
         public IActionResult IsUniqPassword(string password) => Json(password?.LongCount() > 3);

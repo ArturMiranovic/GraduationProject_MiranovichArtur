@@ -11,6 +11,10 @@
     box-shadow: 5px 4px 6px 0px #25448233;
     height: 85%;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .nameForFiltr {
@@ -21,6 +25,15 @@
     border-radius: 8px;
     display: flex;
     justify-content: center;
+}
+
+.textBikeName {
+    text-align: center;
+}
+
+.preicBikeAll {
+    width: 83%;
+    text-align: end;
 }
 
 .invisibleFrame {
