@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication_Artur.EfStuff.Model.BikeModel;
 using WebApplication_Artur.EfStuff.Repositories;
 
 namespace WebApplication_Artur.Services
@@ -25,6 +26,7 @@ namespace WebApplication_Artur.Services
             _userService = userService;
             _webHostEnvironment = webHostEnvironment;
         }
+
 
 
     }

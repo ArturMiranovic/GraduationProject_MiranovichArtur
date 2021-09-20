@@ -14,7 +14,7 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 
         public int Chainrings { get; set; }
 
-        public int Rearstars { get; set; }
+        public int WheelDiametr { get; set; }
 
         public virtual Bike Bike { get; set; }
 

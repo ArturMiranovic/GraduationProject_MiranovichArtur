@@ -12,7 +12,7 @@ namespace WebApplication_Artur.EfStuff
 {
     public static class SeedExtantion
     {
-        public const string ArturLogin = "artur";
+        public const string ArturLogin = "artur@gmail.com";
 
         public static IHost Seed(this IHost host)
         {
@@ -88,7 +88,7 @@ namespace WebApplication_Artur.EfStuff
                 new User()
                 {
                     Name = "Admin",
-                    Login = "Admin",
+                    Login = "Admin@gmail.com",
                     Password = "1111",
                     Role = Role.Admin,
                 },
@@ -102,7 +102,7 @@ namespace WebApplication_Artur.EfStuff
                 new User()
                 {
                     Name = "Mischa",
-                    Login = "mischa",
+                    Login = "mischa@gmail.com",
                     Password = "2222",
                     Role = Role.User,
                 },

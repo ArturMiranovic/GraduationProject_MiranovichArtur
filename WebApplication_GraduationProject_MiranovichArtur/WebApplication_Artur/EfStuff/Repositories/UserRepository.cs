@@ -10,9 +10,11 @@ namespace WebApplication_Artur.EfStuff.Repositories
     public class UserRepository : BaseRepository<User>
     {
 
-        public UserRepository(ShopDbContext dbContext) : base(dbContext)
-        {
+        protected BikeRepository _bikeRepository;
 
+        public UserRepository(ShopDbContext dbContext, BikeRepository bikeRepository) : base(dbContext)
+        {
+            _bikeRepository = bikeRepository;
         }
 
         public User Get(string login, string password)
@@ -27,20 +29,45 @@ namespace WebApplication_Artur.EfStuff.Repositories
                 .SingleOrDefault(x => x.Login == login);
         }
 
+        public User GetUser(long id)
+        {
+            return _dbSet
+                .SingleOrDefault(x => x.Id == id);
+        }
+
         public void RemoveUser(long id)
         {
             var user = Get(id);
 
-            _shopDbContext.Entry(user)
-                .Collection(m => m.MyBikes)
-                .Load();
+            if (user.MyBikes.Count() > 0)
+            {
+                var userBikes = _bikeRepository.GetAll()
+                   .Where(x => x.Owner == user)
+                   .ToList();
+
+                foreach (var bike in userBikes)
+                {
+                    _bikeRepository.RemoveBike(bike.Id);
+                }
+
+                _shopDbContext.Entry(user)
+                    .Collection(m => m.MyBikes)
+                    .Load();
+            }
 
             _shopDbContext.Entry(user)
                 .Collection(l => l.LikeBikes)
                 .Load();
 
             _dbSet.Remove(user);
+
             _shopDbContext.SaveChanges();
+        }
+
+
+        public bool ExistLogin(string login)
+        {
+            return _dbSet.Any(x => (x.Login == login));
         }
     }
 }

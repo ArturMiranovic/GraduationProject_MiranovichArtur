@@ -82,15 +82,15 @@ namespace WebApplication_Artur.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Rearstars")
+                    b.Property<int>("WheelDiameter")
                         .HasColumnType("int");
 
-                    b.Property<int>("WheelDiameter")
+                    b.Property<int>("WheelDiametr")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Switches");
+                    b.ToTable("Shareds");
                 });
 
             modelBuilder.Entity("WebApplication_Artur.EfStuff.Model.UserModel.Comment", b =>
