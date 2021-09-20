@@ -42,7 +42,8 @@ namespace WebApplication_Artur.EfStuff.Repositories
             if (user.MyBikes.Count() > 0)
             {
                 var userBikes = _bikeRepository.GetAll()
-                   .Select(x => x.Owner = user);
+                   .Where(x => x.Owner == user)
+                   .ToList();
 
                 foreach (var bike in userBikes)
                 {
