@@ -70,15 +70,54 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Add(AddSharedBikeViewModel viewMmodel)
         {
 
-            var shared = _mapper.Map<Shared>(viewMmodel);
+            var sharedBike = _mapper.Map<Shared>(viewMmodel);
+            
+            var bike = _bikeRepository.Get(viewMmodel.BikeId);
 
-            shared.Bike = _bikeRepository.Get(viewMmodel.BikeId);
+            sharedBike.Bike = bike;
 
-            _sharedRepository.Save(shared);
+            bike.BikeSize = viewMmodel.BikeSize;
+            bike.BikeClass = viewMmodel.BikeClass;
+
+            _sharedRepository.Save(sharedBike);
+            _bikeRepository.Save(bike);
+
+
+
+            //bike.Shared.RearChainrings = viewMmodel.RearChainrings;
+            //bike.Shared.FrontChainrings = viewMmodel.FrontChainrings;
+            //bike.Shared.WheelDiameter = viewMmodel.WheelDiametr;
+            //bike.Shared.BrakeDiametr = viewMmodel.BrakeDiametr;
+            //bike.BikeSize = viewMmodel.Size;
+
+            //_bikeRepository.Save(bike);
 
             return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.BikeId });
         }
 
+        [HttpGet]
+        public IActionResult EditPrices(long id)
+        {
+            var viewMmodel = new EditPricesViewModel()
+            {
+                BikeId = id
+            };
 
+            return View(viewMmodel);
+        }
+
+
+        [HttpPost]
+        public IActionResult EditPrices(EditPricesViewModel viewMmodel)
+        {
+
+            var bike = _bikeRepository.Get(viewMmodel.BikeId);
+
+            bike.Price = viewMmodel.Price;
+
+            _bikeRepository.Save(bike);
+
+            return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.BikeId });
+        }
     }
 }

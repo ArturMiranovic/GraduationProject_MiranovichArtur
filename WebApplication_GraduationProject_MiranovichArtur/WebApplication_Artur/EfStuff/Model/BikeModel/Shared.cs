@@ -10,11 +10,11 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 
         public long BrakeDiametr { get; set; }
 
-        public int WheelDiameter { get; set; }
+        public long WheelDiameter { get; set; }
 
-        public int Chainrings { get; set; }
+        public long FrontChainrings { get; set; }
 
-        public int WheelDiametr { get; set; }
+        public long RearChainrings { get; set; }
 
         public virtual Bike Bike { get; set; }
 

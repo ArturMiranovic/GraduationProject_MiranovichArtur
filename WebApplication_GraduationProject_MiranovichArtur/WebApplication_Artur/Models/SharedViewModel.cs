@@ -26,6 +26,8 @@ namespace WebApplication_Artur.Models
 
         public string Page { get; set; }
 
+        public Shared Shared { get; set; }
+
         public BikeClass BikeClass { get; set; }
 
         public User Owner { get; set; }

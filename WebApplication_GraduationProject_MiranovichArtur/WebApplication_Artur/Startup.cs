@@ -111,6 +111,11 @@ namespace WebApplication_Artur
             provider.CreateMap<Shared, AddSharedBikeViewModel>();
             provider.CreateMap<AddSharedBikeViewModel, Shared>();
 
+            provider.CreateMap<Shared, EditPricesViewModel>();
+            provider.CreateMap<EditPricesViewModel, Shared>();
+
+            
+
 
             var mapperConfiguration = new MapperConfiguration(provider);
             var mapper = new Mapper(mapperConfiguration);

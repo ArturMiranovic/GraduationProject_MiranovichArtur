@@ -1,53 +1,16 @@
 ﻿@model AddSharedBikeViewModel
 
-<form action="/SharedBike/Add?" method="post" class="formBikeAddShared">
+<form action="/SharedBike/Add" method="post" class="formBikeAddShared">
 
-    <style type="text/css">
-        .pooof {
-            display: none;
-        }
-
-        .addOneSharedBike {
-            padding: 10px;
-        }
-
-        .addBlock {
-            margin: 30px;
-            background: #d1e6f1;
-            display: block;
-            width: fit-content;
-            justify-content: center;
-            align-content: flex-start;
-            flex-wrap: nowrap;
-            border-radius: 8px;
-            box-shadow: 5px 4px 6px 0px #25448233;
-        }
-
-        .inputaddBlock {
-            background-color: #eff3f8;
-            font-family: cursive;
-            color: #86b7e1;
-            width: 100%;
-            border-radius: 4px;
-        }
-
-
-
-        .inputaddBlock:hover {
-            background-color: #86b7e1;
-            color: #eff3f8;
-        }
-
-
-    </style>
 
     <div class="addBlock">
 
         <input class="pooof" name="BikeId" value=@Model.BikeId />
 
 
+
         <div class="addOneSharedBike">
-            @Html.EditorFor(x => x.Size)  - укажите рвзмер рамы.
+            @Html.EditorFor(x => x.BikeSize)  - укажите рвзмер рамы.
         </div>
 
         <div class="addOneSharedBike">
@@ -63,7 +26,22 @@
         </div>
 
         <div class="addOneSharedBike">
-            @Html.EditorFor(x => x.WheelDiametr)  - укажите диаметр тормозов.
+            @Html.EditorFor(x => x.BrakeDiametr)  - укажите диаметр тормозов.
+        </div>
+
+        <div class="addOneSharedBike">
+
+                <select class="BikeClass" id="BikeClass" name="BikeClass">
+
+                    <option value="0">Mountain Bike</option>
+                    <option value="1">Road Bike</option>
+                    <option value="2">Touring  Bike</option>
+                    <option value="3">Gravel Bike</option>
+
+                </select>
+
+                - rласс велосипеда.
+
         </div>
 
         <div class="addOneSharedBike">

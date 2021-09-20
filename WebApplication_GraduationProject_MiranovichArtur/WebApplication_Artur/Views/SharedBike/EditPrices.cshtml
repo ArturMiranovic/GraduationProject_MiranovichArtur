@@ -1,5 +1,21 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model EditPricesViewModel
+
+
+<form action="/SharedBike/EditPrices" method="post" class="formBikeAddShared">
+
+    <div class="addBlock">
+
+        <input class="pooof" name="BikeId" value=@Model.BikeId />
+
+
+        <div class="addOneSharedBike">
+            @Html.EditorFor(x => x.Price)  - новая цена.
+        </div>
+
+        <div class="addOneSharedBike">
+            <input type="submit" value="применить" class="inputaddBlock" />
+        </div>
+
+    </div>
+
+</form>

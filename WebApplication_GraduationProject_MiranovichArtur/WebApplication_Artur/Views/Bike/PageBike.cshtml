@@ -47,61 +47,89 @@
                         @Html.DisplayNameFor(x => x.BikeClass)
                     </div>
 
-                    @if (@Html.ValueFor(x => x.BikeSize) == "0")
+                    @if (@Html.ValueFor(x => x.BikeSize).ToString() != "0")
                     {
                         <div class="ttxString">
                             @Html.DisplayNameFor(x => x.BikeSize)
                         </div>
+
                     }
 
-                    @if (@Html.ValueFor(x => x.BrakeDiametr) == "0")
+                    @if (@Html.ValueFor(x => x.Shared.BrakeDiametr).ToString() != "0")
                     {
                         <div class="ttxString">
-                            @Html.DisplayNameFor(x => x.BrakeDiametr)
+                            @Html.DisplayNameFor(x => x.Shared.BrakeDiametr)
                         </div>
                     }
-                    @if (@Html.ValueFor(x => x.FrontChainrings) == "0")
+                    @if (@Html.ValueFor(x => x.Shared.FrontChainrings).ToString() != "0")
                     {
                         <div class="ttxString">
-                            @Html.DisplayNameFor(x => x.FrontChainrings)
+                            @Html.DisplayNameFor(x => x.Shared.FrontChainrings)
                         </div>
                     }
-                    @if (@Html.ValueFor(x => x.RearChainrings) == "0")
+                    @if (@Html.ValueFor(x => x.Shared.RearChainrings).ToString() != "0")
                     {
                         <div class="ttxString">
-                            @Html.DisplayNameFor(x => x.RearChainrings)
+                            @Html.DisplayNameFor(x => x.Shared.RearChainrings)
                         </div>
                     }
-                    </div>
+                    @if (@Html.ValueFor(x => x.Shared.WheelDiameter).ToString() != "0")
+                    {
+                        <div class="ttxString">
+                            @Html.DisplayNameFor(x => x.Shared.WheelDiameter)
+                        </div>
+                    }
+                    @if (@Html.ValueFor(x => x.Shared.BrakeDiametr).ToString() != "0")
+                    {
+                        <div class="ttxString">
+                            @Html.DisplayNameFor(x => x.Shared.BrakeDiametr)
+                        </div>
+                    }
+                </div>
+
+
 
                 <div class="ttxPillar">
+
                     <div class="ttxString">
                         @Html.ValueFor(x => x.BikeClass)
                     </div>
 
-                    @if (@Html.ValueFor(x => x.BikeSize) == "0")
+                    @if (@Html.ValueFor(x => x.BikeSize).ToString() != "0")
                     {
                         <div class="ttxString">
                             @Html.ValueFor(x => x.BikeSize)
                         </div>
                     }
 
-                    @if (@Html.ValueFor(x => x.BrakeDiametr) == "0")
+                    @if (@Html.ValueFor(x => x.Shared.BrakeDiametr).ToString() != "0")
                     {
                         <div class="ttxString">
-                            @Html.ValueFor(x => x.BrakeDiametr)
+                            @Html.ValueFor(x => x.Shared.BrakeDiametr)
                         </div>
                     }
-                    @if (@Html.ValueFor(x => x.FrontChainrings) == "0")
+                    @if (@Html.ValueFor(x => x.Shared.FrontChainrings).ToString() != "0")
                     {
                         <div class="ttxString">
-                            @Html.ValueFor(x => x.FrontChainrings)
+                            @Html.ValueFor(x => x.Shared.FrontChainrings)
                         </div>
                     }
-                    @if (@Html.ValueFor(x => x.RearChainrings) == "0")
+                    @if (@Html.ValueFor(x => x.Shared.RearChainrings).ToString() != "0")
                     {
                         <div class="ttxString">
-                            @Html.ValueFor(x => x.RearChainrings)
+                            @Html.ValueFor(x => x.Shared.RearChainrings)
+                        </div>
+                    }
+                    @if (@Html.ValueFor(x => x.Shared.WheelDiameter).ToString() != "0")
+                    {
+                        <div class="ttxString">
+                            @Html.ValueFor(x => x.Shared.WheelDiameter)
+                        </div>
+                    }
+                    @if (@Html.ValueFor(x => x.Shared.BrakeDiametr).ToString() != "0")
+                    {
+                        <div class="ttxString">
+                            @Html.ValueFor(x => x.Shared.BrakeDiametr)
                         </div>
                     }
                 </div>
@@ -123,7 +151,7 @@
                 @if (userService.IsAdminOrOwner(Model.Owner.Id))
                 {
 
-                        <a class="collorUrl" href="/User/Rasrabotka">редактироваь цену / </a> 
+                        <a class="collorUrl" href="/SharedBike/EditPrices?id=@Model.Id">редактироваь цену / </a> 
 
                 }
 

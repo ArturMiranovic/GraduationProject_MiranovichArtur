@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication_Artur.EfStuff.Model.BikeModel;
 
 namespace WebApplication_Artur.Models
 {
@@ -11,7 +12,7 @@ namespace WebApplication_Artur.Models
 
         public long BikeId { get; set; }
 
-        public long Size { get; set; }
+        public long BikeSize { get; set; }
 
         public long BrakeDiametr { get; set; }
 
@@ -20,6 +21,9 @@ namespace WebApplication_Artur.Models
         public long RearChainrings { get; set; }
 
         public long WheelDiametr { get; set; }
+
+        public BikeClass BikeClass { get; set; }
+
 
     }
 }
