@@ -56,26 +56,4 @@ $(document).ready(function () {
             }
         });
     });
-
-
-    /*
-    function Do(inputName) {
-        var self = $(this);
-        var currentName = self.val();
-
-        var url = `/User/IsUniq + ${inputName}?${inputName}=` + currentName;
-        var promise = $.get(url);
-        promise.done(function (respone) {
-            $('.icon').hide();
-            if (respone) {
-                $('.icon.ok').show();
-                self.css('background', '#58da5570');
-            } else {
-                $('.icon.cancel').show();
-                self.css('background', '#e877777a');
-            }
-        });
-    }*/
-
-
 });

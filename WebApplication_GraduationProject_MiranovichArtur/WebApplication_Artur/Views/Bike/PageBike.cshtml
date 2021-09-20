@@ -36,26 +36,95 @@
 
         <div class="pageBikeInfo">
 
-            <div>
-                характеристики компанентов
+            <div class="ttxCap">
+                Xарактеристики компанентов
             </div>
 
-            <div>
+            <div class="ttxContent">
+                <div class="ttxPillar">
+
+                    <div class="ttxString">
+                        @Html.DisplayNameFor(x => x.BikeClass)
+                    </div>
+
+                    @if (@Html.ValueFor(x => x.BikeSize) == "0")
+                    {
+                        <div class="ttxString">
+                            @Html.DisplayNameFor(x => x.BikeSize)
+                        </div>
+                    }
+
+                    @if (@Html.ValueFor(x => x.BrakeDiametr) == "0")
+                    {
+                        <div class="ttxString">
+                            @Html.DisplayNameFor(x => x.BrakeDiametr)
+                        </div>
+                    }
+                    @if (@Html.ValueFor(x => x.FrontChainrings) == "0")
+                    {
+                        <div class="ttxString">
+                            @Html.DisplayNameFor(x => x.FrontChainrings)
+                        </div>
+                    }
+                    @if (@Html.ValueFor(x => x.RearChainrings) == "0")
+                    {
+                        <div class="ttxString">
+                            @Html.DisplayNameFor(x => x.RearChainrings)
+                        </div>
+                    }
+                    </div>
+
+                <div class="ttxPillar">
+                    <div class="ttxString">
+                        @Html.ValueFor(x => x.BikeClass)
+                    </div>
+
+                    @if (@Html.ValueFor(x => x.BikeSize) == "0")
+                    {
+                        <div class="ttxString">
+                            @Html.ValueFor(x => x.BikeSize)
+                        </div>
+                    }
+
+                    @if (@Html.ValueFor(x => x.BrakeDiametr) == "0")
+                    {
+                        <div class="ttxString">
+                            @Html.ValueFor(x => x.BrakeDiametr)
+                        </div>
+                    }
+                    @if (@Html.ValueFor(x => x.FrontChainrings) == "0")
+                    {
+                        <div class="ttxString">
+                            @Html.ValueFor(x => x.FrontChainrings)
+                        </div>
+                    }
+                    @if (@Html.ValueFor(x => x.RearChainrings) == "0")
+                    {
+                        <div class="ttxString">
+                            @Html.ValueFor(x => x.RearChainrings)
+                        </div>
+                    }
+                </div>
+                
+
+            </div>
+
+            <div class="ttxRedactor">
                 @if (userService.IsAdminOrOwner(Model.Owner.Id))
                 {
                     <div class="bikeLing">
-                        <a class="linqCollor" href="/SharedBike/Add?id=@Model.Id">редактироваь ттх</a>
+                        <a class="collorUrl" href="/SharedBike/Add?id=@Model.Id">редактироваь ттх</a>
                     </div>
                 }
 
             </div>
 
-            <div>
+            <div class="ttxCorrect">
                 @if (userService.IsAdminOrOwner(Model.Owner.Id))
                 {
-                    <div class="bikeLing">
-                        <a class="linqCollor" href="/User/Rasrabotka">редактироваь цену / </a>
-                    </div>
+
+                        <a class="collorUrl" href="/User/Rasrabotka">редактироваь цену / </a> 
+
                 }
 
                  @Model.Price BYN

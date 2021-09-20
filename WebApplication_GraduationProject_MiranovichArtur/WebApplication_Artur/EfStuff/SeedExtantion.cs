@@ -88,8 +88,8 @@ namespace WebApplication_Artur.EfStuff
                 new User()
                 {
                     Name = "Admin",
-                    Login = "Admin@gmail.com",
-                    Password = "1111",
+                    Login = "Admin",
+                    Password = "Admin",
                     Role = Role.Admin,
                 },
                 new User()

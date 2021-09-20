@@ -124,3 +124,43 @@
     display: flex;
     justify-content: center;
 }
+
+.ttxContent {
+    background-color: #9ed2e45e;
+    padding: 8px;
+    margin: 10px;
+    box-shadow: 5px 4px 6px 0px #25448233;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.ttxPillar {
+    padding: 10px;
+}
+
+.ttxCap {
+    margin: 15px;
+    font-size: 150%;
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+}
+
+.collorUrl {
+    color: #27292b;
+}
+
+.ttxCorrect {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ttxRedactor {
+    height: 100%;
+    display: flex;
+    width: 96%;
+    justify-content: flex-end;
+}

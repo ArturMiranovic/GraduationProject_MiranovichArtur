@@ -7373,8 +7373,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Archi\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Артур\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -7382,15 +7382,16 @@
       "projectUniqueName": "D:\\GraduationProject\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
       "projectName": "WebApplication_ArturTest",
       "projectPath": "D:\\GraduationProject\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
-      "packagesPath": "C:\\Users\\Archi\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Артур\\.nuget\\packages\\",
       "outputPath": "D:\\GraduationProject\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Archi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Артур\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -7451,7 +7452,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
