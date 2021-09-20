@@ -44,9 +44,10 @@ namespace WebApplication_Artur.Controllers
             return View(viewModels);
         }
 
+
         public IActionResult Remove(long id)
         {
-
+            _bikeRepository.Get(id).Owner == _userServices.GetCurrent().Id
             _bikeRepository.Remove(id);
 
             return RedirectToActionPermanent("All");

@@ -56,11 +56,11 @@ namespace WebApplication_Artur.Controllers
 
 
         [HttpGet]
-        public IActionResult Add(long id)
+        public IActionResult Add(long BikeId)
         {
             var viewMmodel = new AddSharedBikeViewModel()
             {
-                BikeId = id,
+                BikeId = BikeId,
             };
 
             return View(viewMmodel);
@@ -76,9 +76,8 @@ namespace WebApplication_Artur.Controllers
 
             var bike = _bikeRepository.Get(viewMmodel.BikeId);
 
-            sharedBike.Id = bike.Id;
+            bike.Shared = sharedBike ;
 
-           bike.Shared = sharedBike;
             //sharedBike.Bike = bike;
 
             bike.BikeSize = viewMmodel.BikeSize;
@@ -87,15 +86,6 @@ namespace WebApplication_Artur.Controllers
             _sharedRepository.Save(sharedBike);
             _bikeRepository.Save(bike);
 
-
-
-            //bike.Shared.RearChainrings = viewMmodel.RearChainrings;
-            //bike.Shared.FrontChainrings = viewMmodel.FrontChainrings;
-            //bike.Shared.WheelDiameter = viewMmodel.WheelDiametr;
-            //bike.Shared.BrakeDiametr = viewMmodel.BrakeDiametr;
-            //bike.BikeSize = viewMmodel.Size;
-
-            //_bikeRepository.Save(bike);
 
             return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.BikeId });
         }
