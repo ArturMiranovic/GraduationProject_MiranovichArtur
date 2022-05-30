@@ -7373,23 +7373,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Archi\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Artur\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GraduationProject\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
+      "projectUniqueName": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
       "projectName": "WebApplication_ArturTest",
-      "projectPath": "D:\\GraduationProject\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
-      "packagesPath": "C:\\Users\\Archi\\.nuget\\packages\\",
-      "outputPath": "D:\\GraduationProject\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\obj\\",
+      "projectPath": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
+      "packagesPath": "C:\\Users\\Artur\\.nuget\\packages\\",
+      "outputPath": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Archi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Artur\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7403,8 +7399,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\GraduationProject\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj": {
-              "projectPath": "D:\\GraduationProject\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj"
+            "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj": {
+              "projectPath": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj"
             }
           }
         }
@@ -7451,7 +7447,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
