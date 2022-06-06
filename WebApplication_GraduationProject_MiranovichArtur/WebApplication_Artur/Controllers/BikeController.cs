@@ -22,16 +22,19 @@ namespace WebApplication_Artur.Controllers
     {
 
         private IMapper _mapper;
-        private BikeRepository _bikeRepository; 
+        private BikeRepository _bikeRepository;
         private UserService _userServices;
         private IWebHostEnvironment _webHostEnvironment;
+        private Random _random;
 
-        public BikeController(IMapper mapper, BikeRepository bikeRepository, UserService userServices, IWebHostEnvironment webHostEnvironment)
+        public BikeController(IMapper mapper, BikeRepository bikeRepository,
+            UserService userServices, IWebHostEnvironment webHostEnvironment, Random random = null)
         {
             _mapper = mapper;
             _bikeRepository = bikeRepository;
             _userServices = userServices;
             _webHostEnvironment = webHostEnvironment;
+            _random = random;
         }
 
         public IActionResult All()
@@ -69,18 +72,25 @@ namespace WebApplication_Artur.Controllers
             var user = _userServices.GetCurrent().Name;
 
             var projectPath = _webHostEnvironment.WebRootPath;
-            var path = Path.Combine(projectPath, "image\\bike\\", user+ "_" + viewmodel.BikePage.Name + ".png");
 
-            using (var filestream = new FileStream(path, FileMode.Create))
+            var guidRandom = Guid.NewGuid();
+
+            if (viewmodel.BikePage != null)
             {
-                viewmodel.BikePage.CopyTo(filestream);
+                var path = Path.Combine(projectPath, "image\\bike\\", user + "_" + viewmodel.BikePage.Name +
+                   "_" + guidRandom + ".png");
+
+                using (var filestream = new FileStream(path, FileMode.Create))
+                {
+                    viewmodel.BikePage.CopyTo(filestream);
+                }
             }
 
             var bike = _mapper.Map<Bike>(viewmodel);
 
             if (viewmodel.BikePage != null)
             {
-                bike.Page = $"/image/bike/{user}_{viewmodel.BikePage.Name}.png";
+                bike.Page = $"/image/bike/{user}_{viewmodel.BikePage.Name}_{guidRandom}.png";
             }
 
             bike.Owner = _userServices.GetCurrent();
