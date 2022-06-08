@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Hosting;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication_Artur.EfStuff.Model.BikeModel;
@@ -8,7 +10,12 @@ namespace WebApplication_Artur.EfStuff.Repositories
 {
     public class BikeRepository : BaseRepository<Bike>
     {
+        private IWebHostEnvironment _webHostEnvironment;
 
+        public BikeRepository(ShopDbContext dbContext, IWebHostEnvironment webHostEnvironment) : base(dbContext)
+        {
+            _webHostEnvironment = webHostEnvironment;
+        }
 
         public BikeRepository(ShopDbContext dbContext) : base(dbContext)
         {
@@ -23,6 +30,13 @@ namespace WebApplication_Artur.EfStuff.Repositories
         public void RemoveBike(long id)
         {
             var bike = Get(id);
+
+            if (bike.Page != "/image/defolt/defaultBike1.png")
+            {
+                var pathPageBike = _webHostEnvironment.WebRootPath + bike.Page;
+
+                File.Delete(pathPageBike);
+            }
 
             _shopDbContext.Entry(bike)
                 .Collection(c => c.Comments)

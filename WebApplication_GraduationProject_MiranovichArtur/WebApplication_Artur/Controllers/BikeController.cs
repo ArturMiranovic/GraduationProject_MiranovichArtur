@@ -25,16 +25,14 @@ namespace WebApplication_Artur.Controllers
         private BikeRepository _bikeRepository;
         private UserService _userServices;
         private IWebHostEnvironment _webHostEnvironment;
-        private Random _random;
 
         public BikeController(IMapper mapper, BikeRepository bikeRepository,
-            UserService userServices, IWebHostEnvironment webHostEnvironment, Random random = null)
+            UserService userServices, IWebHostEnvironment webHostEnvironment)
         {
             _mapper = mapper;
             _bikeRepository = bikeRepository;
             _userServices = userServices;
             _webHostEnvironment = webHostEnvironment;
-            _random = random;
         }
 
         public IActionResult All()
@@ -50,8 +48,8 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Remove(long id)
         {
 
-
-            _bikeRepository.Remove(id);
+            _bikeRepository.RemoveBike(id);
+            //_bikeRepository.Remove(id);
 
             return RedirectToActionPermanent("All");
         }
