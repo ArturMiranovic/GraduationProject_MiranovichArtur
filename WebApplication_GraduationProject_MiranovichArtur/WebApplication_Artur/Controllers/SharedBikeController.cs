@@ -58,6 +58,8 @@ namespace WebApplication_Artur.Controllers
         [HttpGet]
         public IActionResult Add(long id)
         {
+
+
             var viewMmodel = new AddSharedBikeViewModel()
             {
                 BikeId = id
