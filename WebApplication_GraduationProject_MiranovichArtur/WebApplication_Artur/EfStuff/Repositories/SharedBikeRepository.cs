@@ -16,7 +16,5 @@ namespace WebApplication_Artur.EfStuff.Repositories
 
 
         }
-
-
     }
 }
