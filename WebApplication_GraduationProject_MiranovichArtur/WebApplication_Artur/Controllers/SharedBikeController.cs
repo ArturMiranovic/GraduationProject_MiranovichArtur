@@ -22,7 +22,7 @@ namespace WebApplication_Artur.Controllers
     {
 
         private IMapper _mapper;
-        private BikeRepository _bikeRepository; 
+        private BikeRepository _bikeRepository;
         private UserService _userServices;
         private SharedBikeRepository _sharedRepository;
         private IWebHostEnvironment _webHostEnvironment;
@@ -49,6 +49,7 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Remove(long id)
         {
 
+
             _bikeRepository.Remove(id);
 
             return RedirectToActionPermanent("All");
@@ -59,24 +60,46 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Add(long id)
         {
 
+            var bike = _bikeRepository.Get(id);
 
-            var viewMmodel = new AddSharedBikeViewModel()
+            if (bike.Shared == null)
             {
-                BikeId = id
-            };
+                var viewMmodel = new AddSharedBikeViewModel()
+                {
+                    BikeId = id
+                };
+                return View(viewMmodel);
+            }
+            else
+            {
+                var viewMmodel = _mapper.Map<AddSharedBikeViewModel>(bike.Shared);
 
-            return View(viewMmodel);
+                return View(viewMmodel);
+            }
+
         }
 
         [HttpPost]
         public IActionResult Add(AddSharedBikeViewModel viewMmodel)
         {
 
-            var shared = _mapper.Map<Shared>(viewMmodel);
+            var bike = _bikeRepository.Get(viewMmodel.BikeId);
 
-            shared.Bike = _bikeRepository.Get(viewMmodel.BikeId);
+            if (bike.Shared == null)
+            {
 
-            _sharedRepository.Save(shared);
+                var shared = _mapper.Map<Shared>(viewMmodel);
+
+                shared.Bike = bike;
+
+                _sharedRepository.Save(shared);
+            }
+            else
+            {
+
+                _sharedRepository.Save(bike.Shared = _mapper.Map<Shared>(viewMmodel));
+
+            }
 
             return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.BikeId });
         }

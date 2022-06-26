@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj": {}
+    "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj": {}
   },
   "projects": {
-    "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj": {
+    "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
+        "projectUniqueName": "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
         "projectName": "WebApplication_ArturTest",
-        "projectPath": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
-        "packagesPath": "C:\\Users\\Artur\\.nuget\\packages\\",
-        "outputPath": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\obj\\",
+        "projectPath": "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\WebApplication_ArturTest.csproj",
+        "packagesPath": "C:\\Users\\Archi\\.nuget\\packages\\",
+        "outputPath": "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_ArturTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Artur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Archi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj": {
-                "projectPath": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj"
+              "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj": {
+                "projectPath": "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj"
               }
             }
           }
@@ -80,17 +80,17 @@
         }
       }
     },
-    "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj": {
+    "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj",
+        "projectUniqueName": "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj",
         "projectName": "WebApplication_Artur",
-        "projectPath": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj",
-        "packagesPath": "C:\\Users\\Artur\\.nuget\\packages\\",
-        "outputPath": "D:\\It\\C\\bike\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\obj\\",
+        "projectPath": "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\WebApplication_Artur.csproj",
+        "packagesPath": "C:\\Users\\Archi\\.nuget\\packages\\",
+        "outputPath": "F:\\_IT - обучение\\C#\\bike\\ArturMiranovic\\GraduationProject_MiranovichArtur\\WebApplication_GraduationProject_MiranovichArtur\\WebApplication_Artur\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Artur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Archi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

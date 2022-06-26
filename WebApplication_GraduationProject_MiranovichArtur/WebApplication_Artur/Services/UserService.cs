@@ -48,7 +48,7 @@ namespace WebApplication_Artur.Services
 
             var projectPath = _webHostEnvironment.WebRootPath;
 
-            var path = Path.Combine(projectPath, "file\\", user.Name + ".txt");
+            var path = Path.Combine(projectPath, "file\\", user.Login + ".txt");
 
             var nomer = 1;
 

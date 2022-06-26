@@ -67,7 +67,9 @@ namespace WebApplication_Artur.Controllers
         [HttpPost]
         public IActionResult AddBike(AddBikeViewModel viewmodel)
         {
-            var user = _userServices.GetCurrent().Name;
+
+
+            var user = _userServices.GetCurrent();
 
             var projectPath = _webHostEnvironment.WebRootPath;
 
@@ -75,7 +77,7 @@ namespace WebApplication_Artur.Controllers
 
             if (viewmodel.BikePage != null)
             {
-                var path = Path.Combine(projectPath, "image\\bike\\", user + "_" + viewmodel.BikePage.Name +
+                var path = Path.Combine(projectPath, "image\\bike\\", user.Name + "_" + viewmodel.BikePage.Name +
                    "_" + guidRandom + ".png");
 
                 using (var filestream = new FileStream(path, FileMode.Create))
@@ -88,10 +90,10 @@ namespace WebApplication_Artur.Controllers
 
             if (viewmodel.BikePage != null)
             {
-                bike.Page = $"/image/bike/{user}_{viewmodel.BikePage.Name}_{guidRandom}.png";
+                bike.Page = $"/image/bike/{user.Name}_{viewmodel.BikePage.Name}_{guidRandom}.png";
             }
 
-            bike.Owner = _userServices.GetCurrent();
+            bike.Owner = user;
 
             _bikeRepository.Save(bike);
 

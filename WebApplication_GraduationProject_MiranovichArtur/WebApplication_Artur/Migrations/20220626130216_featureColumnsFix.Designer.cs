@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication_Artur.EfStuff;
 
 namespace WebApplication_Artur.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220626130216_featureColumnsFix")]
+    partial class featureColumnsFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,9 +86,6 @@ namespace WebApplication_Artur.Migrations
 
                     b.Property<int>("RearChainrings")
                         .HasColumnType("int");
-
-                    b.Property<long>("Size")
-                        .HasColumnType("bigint");
 
                     b.Property<int>("WheelDiametr")
                         .HasColumnType("int");
