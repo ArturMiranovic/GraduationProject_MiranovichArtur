@@ -1,4 +1,4 @@
-﻿@using  WebApplication_Artur.Services
+﻿@using WebApplication_Artur.Services
 @inject UserService userService
 
 @model SharedViewModel
@@ -10,7 +10,7 @@
             Модель велосипеда - @Model.Name
         </div>
 
-        @if (userService.IsAdminOrOwner(Model.Owner.Id)) 
+        @if (userService.IsAdminOrOwner(Model.Id))
         {
             <div class="bikeDeket">
                 <a class="linqCollor" href="/Bike/Remove?id=@Model.Id">
@@ -37,15 +37,23 @@
                 характеристики компанентов
             </div>
 
-            <div>
-                <div class="bikeLing">
-                    <a class="linqCollor" href="/SharedBike/Add?id=@Model.Id">редактироваь ттх</a>
+            @if (userService.IsAdminOrOwner(Model.Id))
+            {
+                <div>
+                    <div class="bikeLing">
+                        <a class="linqCollor" href="/SharedBike/Add?id=@Model.Id">редактироваь ттх</a>
+                    </div>
                 </div>
-            </div>
+            }
 
-            <div>
-                редактироваь цену / @Model.Price BYN
-            </div>
+            @if (userService.IsOwner(Model.Id))
+            {
+                <div>
+                    редактироваь цену / @Model.Price BYN
+                </div>
+            }
+
+
 
         </div>
 
