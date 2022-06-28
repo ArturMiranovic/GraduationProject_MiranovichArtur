@@ -130,9 +130,12 @@ namespace WebApplication_Artur.Controllers
         }
 
 
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult DowlondBike(long id)
         {
+
             _userService.AllBikeUser(id);
+
 
             return RedirectToActionPermanent("All", "User");
         }
