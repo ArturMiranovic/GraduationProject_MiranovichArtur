@@ -8,11 +8,11 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
     public class Shared : BaseModel
     {
 
-        public long Size { get; set; }
+        public long BikeSize { get; set; }
 
         public long BrakeDiametr { get; set; }
 
-        public int WheelDiametr { get; set; }
+        public long WheelDiametr { get; set; }
 
         public int FrontChainrings { get; set; }
 

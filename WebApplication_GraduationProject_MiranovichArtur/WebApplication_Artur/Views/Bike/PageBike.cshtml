@@ -34,7 +34,48 @@
         <div class="pageBikeInfo">
 
             <div>
-                характеристики компанентов
+
+                @if (@Model.BikeSize > 0)
+                {
+                    <div class="change">
+                        Размер рамы: @Model.BikeSize '
+                    </div>
+                }
+
+                @if (@Model.WheelDiametr > 0)
+                {
+                    <div class="change">
+                        Размер колёс: @Model.WheelDiametr мм
+                    </div>
+                }
+
+                @if (@Model.BrakeDiametr > 0)
+                {
+                    <div class="change">
+                        Тормозные диски: @Model.BrakeDiametr мм
+                    </div>
+                }
+
+                @if (@Model.FrontChainrings > 0 || @Model.FrontChainrings > 0)
+                {
+
+                    <div class="change">
+
+                        Количество передачь:
+
+                        @if (@Model.FrontChainrings > 0)
+                        {
+                            @Model.RearChainrings
+                        }
+                        /
+                        @if (@Model.FrontChainrings > 0)
+                        {
+                            @Model.RearChainrings
+                        }
+
+                    </div>
+                }
+
             </div>
 
             @if (userService.IsAdminOrOwner(Model.Id))

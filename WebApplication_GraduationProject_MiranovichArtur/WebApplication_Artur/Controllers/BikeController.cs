@@ -107,6 +107,8 @@ namespace WebApplication_Artur.Controllers
 
             var viewmodel = _mapper.Map<SharedViewModel>(bike);
 
+            _mapper.Map(bike.Shared, viewmodel);
+
             return View(viewmodel);
         }
     }

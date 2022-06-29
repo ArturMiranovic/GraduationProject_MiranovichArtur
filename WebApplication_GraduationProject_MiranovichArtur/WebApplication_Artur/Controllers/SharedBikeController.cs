@@ -85,10 +85,10 @@ namespace WebApplication_Artur.Controllers
 
             var bike = _bikeRepository.Get(viewMmodel.BikeId);
 
+            var shared = _mapper.Map<Shared>(viewMmodel);
+
             if (bike.Shared == null)
             {
-
-                var shared = _mapper.Map<Shared>(viewMmodel);
 
                 shared.Bike = bike;
 
@@ -97,8 +97,9 @@ namespace WebApplication_Artur.Controllers
             else
             {
 
-                _sharedRepository.Save(bike.Shared = _mapper.Map<Shared>(viewMmodel));
+                bike.Shared = shared;
 
+                _bikeRepository.Save(bike);
             }
 
             return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.BikeId });

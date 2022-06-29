@@ -144,7 +144,7 @@
   <data name="UserList" xml:space="preserve">
     <value>Список пользователей</value>
   </data>
-  <data name="Your name:" xml:space="preserve">
+  <data name="YourName" xml:space="preserve">
     <value>Ваше имя:</value>
   </data>
 </root>

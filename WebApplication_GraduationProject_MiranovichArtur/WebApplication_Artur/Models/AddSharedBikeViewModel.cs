@@ -11,7 +11,7 @@ namespace WebApplication_Artur.Models
 
         public long BikeId { get; set; }
 
-        public long Size { get; set; }
+        public long BikeSize { get; set; }
 
         public long BrakeDiametr { get; set; }
 

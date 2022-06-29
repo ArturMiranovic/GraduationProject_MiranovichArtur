@@ -100,6 +100,9 @@ namespace WebApplication_Artur
             provider.CreateMap<Bike, SharedViewModel>();
             provider.CreateMap<SharedViewModel, Bike>();
 
+            provider.CreateMap<Shared, SharedViewModel>();
+            provider.CreateMap<SharedViewModel, Shared>();
+
             provider.CreateMap<Bike, AddBikeViewModel>();
             provider.CreateMap<AddBikeViewModel, Bike>();
 

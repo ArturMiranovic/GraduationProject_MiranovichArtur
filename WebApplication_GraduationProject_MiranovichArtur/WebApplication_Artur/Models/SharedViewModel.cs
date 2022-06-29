@@ -20,15 +20,25 @@ namespace WebApplication_Artur.Models
 
         public string Page { get; set; }
 
-        public string WheelDiametr { get; set; }
+        public long BrakeDiametr { get; set; }
+
+        public long WheelDiametr { get; set; }
+
+        public int FrontChainrings { get; set; }
+
+        public int RearChainrings { get; set; }
 
         public BikeClass BikeClass { get; set; }
+
+        public virtual Bike Bike { get; set; }
 
         public User Owner { get; set; }
 
         public List<User> PotentialBuyer { get; set; }
 
         public List<Comment> Comments { get; set; }
+
+
 
     }
 }
