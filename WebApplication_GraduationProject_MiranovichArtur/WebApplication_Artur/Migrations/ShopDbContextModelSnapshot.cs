@@ -44,9 +44,6 @@ namespace WebApplication_Artur.Migrations
                     b.Property<int>("BikeClass")
                         .HasColumnType("int");
 
-                    b.Property<long>("BikeSize")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 

@@ -45,6 +45,8 @@ namespace WebApplication_Artur.Controllers
             return View(viewModels);
         }
 
+
+
         public IActionResult Remove(long id)
         {
 
@@ -105,9 +107,9 @@ namespace WebApplication_Artur.Controllers
 
             var bike = _bikeRepository.Get(idBike);
 
-            var viewmodel = _mapper.Map<SharedViewModel>(bike);
+            var viewmodel = _mapper.Map<SharedViewModel>(bike.Shared);
 
-            _mapper.Map(bike.Shared, viewmodel);
+            var a =_mapper.Map(bike, viewmodel);
 
             return View(viewmodel);
         }

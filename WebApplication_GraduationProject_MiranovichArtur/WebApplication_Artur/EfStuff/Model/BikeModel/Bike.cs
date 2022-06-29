@@ -11,8 +11,6 @@ namespace WebApplication_Artur.EfStuff.Model.BikeModel
 
         public long Price { get; set; }
 
-        public long BikeSize { get; set; }
-
         public BikeClass BikeClass { get;set; }
 
         public string Page { get; set; }
