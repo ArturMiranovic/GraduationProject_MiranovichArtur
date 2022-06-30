@@ -120,14 +120,13 @@ namespace WebApplication_Artur.Controllers
             var viewmodel = new UpdatePriceViewModel()
             {
                 idBike = id,
-                price = bike.Id
+                price = bike.Price
             };
 
             return View(viewmodel);
         }
 
         [HttpPost]
-        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult UpdatePrice(UpdatePriceViewModel viewMmodel)
         {
 
