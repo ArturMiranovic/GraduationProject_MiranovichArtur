@@ -106,3 +106,8 @@
     max-height: 400px;
     max-height: 400px
 }
+
+.changeThePrice {
+    display: flex;
+    flex-direction: column;
+}

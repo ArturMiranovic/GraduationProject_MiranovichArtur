@@ -109,9 +109,35 @@ namespace WebApplication_Artur.Controllers
 
             var viewmodel = _mapper.Map<SharedViewModel>(bike.Shared);
 
-            var a =_mapper.Map(bike, viewmodel);
+            return View(_mapper.Map(bike, viewmodel));
+        }
+
+        [HttpGet]
+        public IActionResult UpdatePrice(long id)
+        {
+            var bike = _bikeRepository.Get(id);
+
+            var viewmodel = new UpdatePriceViewModel()
+            {
+                idBike = id,
+                price = bike.Id
+            };
 
             return View(viewmodel);
+        }
+
+        [HttpPost]
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult UpdatePrice(UpdatePriceViewModel viewMmodel)
+        {
+
+            var bike = _bikeRepository.Get(viewMmodel.idBike);
+
+            bike.Price = viewMmodel.price;
+
+            _bikeRepository.Save(bike);
+
+            return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.idBike });
         }
     }
 }

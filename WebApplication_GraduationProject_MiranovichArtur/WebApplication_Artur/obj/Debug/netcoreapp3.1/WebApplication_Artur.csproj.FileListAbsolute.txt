@@ -290,3 +290,4 @@ F:\_IT - обучение\C#\bike\ArturMiranovic\GraduationProject_MiranovichArt
 F:\_IT - обучение\C#\bike\ArturMiranovic\GraduationProject_MiranovichArtur\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\WebApplication_Artur.dll
 F:\_IT - обучение\C#\bike\ArturMiranovic\GraduationProject_MiranovichArtur\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\WebApplication_Artur.pdb
 F:\_IT - обучение\C#\bike\ArturMiranovic\GraduationProject_MiranovichArtur\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\WebApplication_Artur.genruntimeconfig.cache
+D:\It\C\bike\WebApplication_GraduationProject_MiranovichArtur\WebApplication_Artur\obj\Debug\netcoreapp3.1\Razor\Views\Bike\UpdatePrice.cshtml.g.cs

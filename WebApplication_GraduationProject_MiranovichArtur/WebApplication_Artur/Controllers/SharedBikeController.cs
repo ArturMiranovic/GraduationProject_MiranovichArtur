@@ -83,7 +83,7 @@ namespace WebApplication_Artur.Controllers
         public IActionResult Add(AddSharedBikeViewModel viewMmodel)
         {
 
-             var bike = _bikeRepository.Get(viewMmodel.BikeId);
+            var bike = _bikeRepository.Get(viewMmodel.BikeId);
 
             var shared = _mapper.Map<Shared>(viewMmodel);
 

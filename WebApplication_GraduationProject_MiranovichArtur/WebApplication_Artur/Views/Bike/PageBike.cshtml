@@ -78,7 +78,7 @@
 
             </div>
 
-            @if (userService.IsAdminOrOwner(Model.Id))
+            @if (userService.IsOwner(Model.Id))
             {
                 <div>
                     <div class="bikeLing">
@@ -87,14 +87,19 @@
                 </div>
             }
 
-            @if (userService.IsOwner(Model.Id))
-            {
-                <div>
-                    редактироваь цену / @Model.Price BYN
-                </div>
-            }
 
+            <div>
+                
+                <div class="changeThePrice"> @Model.Price BYN </div>
 
+                @if (userService.IsOwner(Model.Id))
+                {
+         
+                    <a class="linqCollor" href="/Bike/UpdatePrice?id=@Model.Id">изменить цену</a>
+
+                }
+
+            </div>
 
         </div>
 
