@@ -139,4 +139,4 @@ namespace WebApplication_Artur.Controllers
             return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.IdBike });
         }
     }
-}
+} 
