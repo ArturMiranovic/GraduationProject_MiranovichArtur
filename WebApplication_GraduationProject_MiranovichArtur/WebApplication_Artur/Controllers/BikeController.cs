@@ -119,8 +119,8 @@ namespace WebApplication_Artur.Controllers
 
             var viewmodel = new UpdatePriceViewModel()
             {
-                idBike = id,
-                price = bike.Price
+                IdBike = id,
+                Price = bike.Price
             };
 
             return View(viewmodel);
@@ -130,13 +130,13 @@ namespace WebApplication_Artur.Controllers
         public IActionResult UpdatePrice(UpdatePriceViewModel viewMmodel)
         {
 
-            var bike = _bikeRepository.Get(viewMmodel.idBike);
+            var bike = _bikeRepository.Get(viewMmodel.IdBike);
 
-            bike.Price = viewMmodel.price;
+            bike.Price = viewMmodel.Price;
 
             _bikeRepository.Save(bike);
 
-            return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.idBike });
+            return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.IdBike });
         }
     }
 }

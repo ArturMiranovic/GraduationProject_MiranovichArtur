@@ -140,7 +140,6 @@ namespace WebApplication_Artur.Controllers
             return RedirectToActionPermanent("All", "User");
         }
 
-
         public IActionResult Remove(long id)
         {
 

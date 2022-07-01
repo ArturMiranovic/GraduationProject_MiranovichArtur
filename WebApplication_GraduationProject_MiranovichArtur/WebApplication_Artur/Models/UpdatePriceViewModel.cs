@@ -2,9 +2,9 @@
 {
     public class UpdatePriceViewModel
     {
-        public long idBike { get; set; }
+        public long IdBike { get; set; }
 
-        public long price { get; set; }
+        public long Price { get; set; }
 
     }
 }

@@ -89,12 +89,12 @@
 
 
             <div>
-                
+
                 <div class="changeThePrice"> @Model.Price BYN </div>
 
                 @if (userService.IsOwner(Model.Id))
                 {
-         
+
                     <a class="linqCollor" href="/Bike/UpdatePrice?id=@Model.Id">изменить цену</a>
 
                 }
@@ -114,7 +114,13 @@
             </div>
 
             <div>
-                Его комент @CommentUs.Name
+                <div>
+                    Его комент @CommentUs.Text
+                </div>
+
+                <div>
+                    Его комент @CommentUs.DateTime
+                </div>
             </div>
 
             <div>
@@ -122,6 +128,62 @@
             </div>
 
         }
+
+@*        <form action="/Bike/UpdatePrice?" method="post">
+
+            <style type="text/css">
+                .pooof {
+                    display: none;
+                }
+
+                .addOneSharedBike {
+                    padding: 10px;
+                }
+
+                .addBlock {
+                    margin: 30px;
+                    background: #d1e6f1;
+                    display: block;
+                    width: fit-content;
+                    justify-content: center;
+                    align-content: flex-start;
+                    flex-wrap: nowrap;
+                    border-radius: 8px;
+                    box-shadow: 5px 4px 6px 0px #25448233;
+                }
+
+                .inputaddBlock {
+                    background-color: #eff3f8;
+                    font-family: cursive;
+                    color: #86b7e1;
+                    width: 100%;
+                    border-radius: 4px;
+                }
+
+                .inputaddBlock:hover {
+                    background-color: #86b7e1;
+                    color: #eff3f8;
+                }
+
+            </style>
+
+            <div class="addBlock">
+
+                <input class="pooof" name="idBike" value=@Model.Id />
+
+
+                <div class="addOneSharedBike">
+                    @Html.EditorFor(x => x.Price)  - новая цена.
+                </div>
+
+                <div class="addOneSharedBike">
+                    <input type="submit" value="обновить" class="inputaddBlock" />
+                </div>
+
+            </div>
+
+
+        </form>*@
         комментарии
     </div>
 
