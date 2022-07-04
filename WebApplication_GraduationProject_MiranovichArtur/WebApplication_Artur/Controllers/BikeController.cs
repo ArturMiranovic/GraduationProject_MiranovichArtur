@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using WebApplication_Artur.EfStuff.Model.UserModel;
 
 namespace WebApplication_Artur.Controllers
 {
@@ -25,6 +26,7 @@ namespace WebApplication_Artur.Controllers
         private BikeRepository _bikeRepository;
         private UserService _userServices;
         private IWebHostEnvironment _webHostEnvironment;
+
 
         public BikeController(IMapper mapper, BikeRepository bikeRepository,
             UserService userServices, IWebHostEnvironment webHostEnvironment)
@@ -102,12 +104,15 @@ namespace WebApplication_Artur.Controllers
             return RedirectToActionPermanent("PageBike", "Bike", new { idBike = bike.Id });
         }
 
+        [HttpGet]
         public IActionResult PageBike(long idBike)
         {
 
             var bike = _bikeRepository.Get(idBike);
 
             var viewmodel = _mapper.Map<SharedViewModel>(bike.Shared);
+
+            viewmodel.Text = "Оставьте комментарий";
 
             return View(_mapper.Map(bike, viewmodel));
         }
@@ -138,5 +143,28 @@ namespace WebApplication_Artur.Controllers
 
             return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.IdBike });
         }
+
+        [Authorize]
+        public IActionResult AddComment(SharedViewModel viewMmodel)
+        {
+
+            var bike = _bikeRepository.Get(viewMmodel.Id);
+
+            var comment = new Comment()
+            {
+                Bike = bike,
+                DateTime = DateTime.Now,
+                Text = viewMmodel.Text,
+                User = _userServices.GetCurrent()
+            };
+
+            bike.Comments.Add(comment);
+
+            _bikeRepository.Save(bike);
+
+            return RedirectToActionPermanent("PageBike", "Bike", new { idBike = viewMmodel.Id });
+        }
+
+
     }
 }

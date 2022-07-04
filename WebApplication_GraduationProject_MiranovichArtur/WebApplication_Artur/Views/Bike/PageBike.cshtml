@@ -110,16 +110,16 @@
         {
 
             <div>
-                Имя юзера  @CommentUs.User
+                @CommentUs.User.Name
             </div>
 
             <div>
                 <div>
-                    Его комент @CommentUs.Text
+                  @CommentUs.Text
                 </div>
 
                 <div>
-                    Его комент @CommentUs.DateTime
+                  @CommentUs.DateTime.ToShortDateString() @CommentUs.DateTime.ToShortTimeString()
                 </div>
             </div>
 
@@ -129,61 +129,25 @@
 
         }
 
-@*        <form action="/Bike/UpdatePrice?" method="post">
-
-            <style type="text/css">
-                .pooof {
-                    display: none;
-                }
-
-                .addOneSharedBike {
-                    padding: 10px;
-                }
-
-                .addBlock {
-                    margin: 30px;
-                    background: #d1e6f1;
-                    display: block;
-                    width: fit-content;
-                    justify-content: center;
-                    align-content: flex-start;
-                    flex-wrap: nowrap;
-                    border-radius: 8px;
-                    box-shadow: 5px 4px 6px 0px #25448233;
-                }
-
-                .inputaddBlock {
-                    background-color: #eff3f8;
-                    font-family: cursive;
-                    color: #86b7e1;
-                    width: 100%;
-                    border-radius: 4px;
-                }
-
-                .inputaddBlock:hover {
-                    background-color: #86b7e1;
-                    color: #eff3f8;
-                }
-
-            </style>
+        <form action="/Bike/AddComment?" method="post">
 
             <div class="addBlock">
 
-                <input class="pooof" name="idBike" value=@Model.Id />
+                <input class="pooof" name="Id" value=@Model.Id />
 
 
                 <div class="addOneSharedBike">
-                    @Html.EditorFor(x => x.Price)  - новая цена.
+                    @Html.EditorFor(x => x.Text)  
                 </div>
 
                 <div class="addOneSharedBike">
-                    <input type="submit" value="обновить" class="inputaddBlock" />
+                    <input type="submit" value="отправить" class="inputaddBlock" />
                 </div>
 
             </div>
 
 
-        </form>*@
+        </form>
         комментарии
     </div>
 

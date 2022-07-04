@@ -28,6 +28,8 @@ namespace WebApplication_Artur.Models
 
         public int RearChainrings { get; set; }
 
+        public string Text { get; set; }
+
         public BikeClass BikeClass { get; set; }
 
         public virtual Bike Bike { get; set; }
@@ -37,8 +39,6 @@ namespace WebApplication_Artur.Models
         public List<User> PotentialBuyer { get; set; }
 
         public List<Comment> Comments { get; set; }
-
-
 
     }
 }
